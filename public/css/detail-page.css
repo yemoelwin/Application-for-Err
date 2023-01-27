@@ -257,6 +257,61 @@ button {
   width: 100%;
 }
 
+.title {
+  margin-top: 1rem;
+}
+
+.showaddcmt {
+  opacity: 1;
+  visibility: visible;
+  scale: 1;
+}
+
+.showaddcmt.hide {
+  display: none;
+}
+
+.closeBox,
+#closetextBox {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  scale: 0;
+}
+
+.closeBox.active,
+#closetextBox.active {
+  opacity: 1;
+  visibility: visible;
+  scale: 1;
+}
+
+.addcmt {
+  position: relative;
+  margin-top: 1rem;
+}
+
+
+.closetextBox {
+  position: absolute;
+  font-size: 20px;
+  margin-top: 2rem;
+}
+
+#closetextBox {
+  font-size: 17px;
+}
+
+.closeBox {
+  /* position: absolute; */
+  font-size: 25px;
+}
+
+p.showaddcmt {
+  font-size: 18px;
+}
+
+
 /* MEDIA Query */
 
 @media screen and (min-width: 768px) {

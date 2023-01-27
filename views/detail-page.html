@@ -117,16 +117,22 @@
                 <p>This is comment - <span>User name</span></p>
                 <small>Timestamp</small>
               </div>
-              <p>Add a comment</p>
+
+              <div class="addcmt">
+              <p class="showaddcmt" style="cursor: pointer; color: blue;">Add a comment</p>
               <div class="title">
+                <ion-icon name="close-outline" class="closeBox"></ion-icon>
                 <textarea
                   name=""
-                  id=""
+                  id="closetextBox"
                   cols="30"
                   rows="10"
                   placeholder="Add your comment ...."
                 ></textarea>
-                <button>Add comment</button>
+                
+                <button style="color: blue; background-color: white;">Add comment</button>
+                <button style="color: red; background-color: white;">Discard</button>
+              </div>
               </div>
             </div>
           </div>

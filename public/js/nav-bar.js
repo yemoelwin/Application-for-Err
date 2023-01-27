@@ -26,3 +26,20 @@ menuToggle.onclick = function () {
     closeBtn.classList.remove('active');
     searchBtn.classList.remove('active');
 };
+
+let closeBox = document.querySelector('.closeBox');
+let closetextBox = document.querySelector('#closetextBox');
+let showaddcmt = document.querySelector('.showaddcmt');
+
+showaddcmt.onclick = function () {
+    showaddcmt.classList.add('hide');
+    closeBox.classList.add('active');
+    closetextBox.classList.add('active');
+};
+
+closeBox.onclick = function () {
+    showaddcmt.classList.remove('hide');
+    closeBox.classList.remove('active');
+    closetextBox.classList.remove('active');
+    // closetextBox.classList.remove('erase');
+};
