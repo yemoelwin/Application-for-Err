@@ -8,7 +8,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const addpost = require('./routes/add-post');
+const addpostData = require('./routes/add-post');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
@@ -17,13 +17,13 @@ const authRoutes = require('./routes/auth');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', addpost.routes);
+app.use('/admin', addpostData.routes);
 app.use(indexRoutes);
 app.use(authRoutes);
 // app.use('/user', userModels);
 
 app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    res.status(404).render('404', { pageTitle: 'Page Not Found' });
 });
 
 
