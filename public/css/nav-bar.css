@@ -9,8 +9,13 @@
 
 body {
     /* background-color: #dee1e2; */
-    min-height: 100vh;
+    min-height: max-content;
     overflow-x: hidden;
+}
+
+#pageNotFound {
+    margin-top: 7rem;
+    font-size: 50px;
 }
 
 header {
