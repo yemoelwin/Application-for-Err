@@ -17,7 +17,7 @@ router.get("/login", (req, res, next) => {
   });
 });
 
-router.post("/login", (req, res) => {});
+// router.post("/login", (req, res) => {});
 
 router.post("/register", (req, res, next) => {
   res.send("Register");
