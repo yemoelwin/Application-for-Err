@@ -24,6 +24,7 @@ body {
     position: relative;
     width: 850px;
     height: 500px;
+    margin-top: 5rem;
     background-color: #fff;
     box-shadow: 25px 30px 55px #5557;
     border-radius: 13px;
@@ -41,12 +42,12 @@ body {
 .sign-up-container {
     opacity: 0;
     z-index: 1;
-   margin-left: 40%;
+    margin-left: 40%;
 }
 
 .sign-in-container {
     z-index: 2;
-    
+
 }
 
 form {
@@ -75,7 +76,7 @@ h1 {
     margin: 0px 5px;
     height: 40px;
     width: 40px;
-    
+
 }
 
 .social-container a:hover {
@@ -89,7 +90,7 @@ span {
 
 .infield {
     position: relative;
-    margin:  8px 0px;
+    margin: 8px 0px;
     width: 100%;
 }
 
@@ -112,7 +113,7 @@ label {
     transition: 0.3s;
 }
 
-input:focus ~ label {
+input:focus~label {
     width: 100%;
 
 }
@@ -135,11 +136,18 @@ button {
     border: 1px solid var(--grad-clr1);
     background: var(--grad-clr2);
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 14px 45px;
+    /* margin-top: 6px; */
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.signup,
+.login {
+    text-align: center;
+    margin-top: .6rem !important;
 }
 
 .form-container button {
@@ -199,10 +207,15 @@ button {
     transition: 0.6s ease-in-out;
 }
 
+/* #login {
+    margin-top: 2rem !important;
+} */
+
 .overlay-left {
     right: 60%;
     transform: translateX(-12%);
 }
+
 
 .overlay-right {
     right: 0;
@@ -251,15 +264,19 @@ p {
     transform: translateX((66.7%));
     opacity: 1;
     z-index: 5;
-    animation: show 0.6s ;
+    animation: show 0.6s;
 }
 
 @keyframes show {
-    0%, 50% {
+
+    0%,
+    50% {
         opacity: 0;
         z-index: 1;
     }
-    50.1%, 100% {
+
+    50.1%,
+    100% {
         opacity: 1;
         z-index: 5;
     }
@@ -273,9 +290,11 @@ p {
     0% {
         width: 143.67px;
     }
+
     50% {
         width: 250px;
     }
+
     100% {
         width: 143.67px;
     }
@@ -297,10 +316,12 @@ footer {
     bottom: 30px;
     transform: translateX(-50%);
 }
+
 footer mark {
     padding: 8px 30px;
     border-radius: 7px;
 }
+
 footer a {
     text-decoration: none;
     font-size: 18px;

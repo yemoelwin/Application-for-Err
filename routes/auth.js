@@ -1,23 +1,26 @@
-const path = require('path');
-const express = require('express');
-const rootDir = require('../util/path');
+const path = require("path");
+const express = require("express");
+const rootDir = require("../util/path");
 const router = express.Router();
 
-router.get('/login', (req, res, next) => {
-    res.sendFile(path.join(rootDir, 'views', 'login.html'));
+router.get("/signup", (req, res, next) => {
+  res.render("signup", {
+    pageTitle: "SignUp",
+    path: "/signup",
+  });
 });
 
-router.post('/login', (req, res, next) => {
-    // res.sendFile(path.join(rootDir, 'views', 'search-error.html'));
-    res.redirect('/admin/add-post');
+router.get("/login", (req, res, next) => {
+  res.render("login", {
+    pageTitle: "Login",
+    path: "/login",
+  });
 });
 
-router.get('/signup', (req, res, next) => {
-    res.sendFile(path.join(rootDir, 'views', 'signup.html'));
-});
+router.post("/login", (req, res) => {});
 
-router.post('/signup', (req, res, next) => {
-    res.redirect('/login');
+router.post("/register", (req, res, next) => {
+  res.send("Register");
 });
 
 module.exports = router;
