@@ -1,26 +1,20 @@
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const rootDir = require("../util/path");
+const { check, body } = require("express-validator/check");
 const router = express.Router();
+const User = require("../models/user");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const authController = require("../controllers/auth");
 
-router.get("/signup", (req, res, next) => {
-  res.render("signup", {
-    pageTitle: "SignUp",
-    path: "/signup",
-  });
-});
+// LOGIN SECTION
 
-router.get("/login", (req, res, next) => {
-  res.render("login", {
-    pageTitle: "Login",
-    path: "/login",
-  });
-});
+router.post("/login", authController.postLogin);
 
-router.post("/login", (req, res) => {});
+// Register
 
-router.post("/register", (req, res, next) => {
-  res.send("Register");
-});
+router.post("/register", authController.postRegister);
 
 module.exports = router;
