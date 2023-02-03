@@ -2,7 +2,7 @@
 const User = require("../models/user");
 
 exports.getLogin = (req, res, next) => {
-  res.render('login', {
+  res.render('auth/login', {
     pageTitle: 'Login',
     path: '/login'
   });
@@ -35,7 +35,7 @@ exports.postLogin = async (req, res, next) => {
 };
 
 exports.getRegister = (req, res, next) => {
-  res.render('signup', {
+  res.render('auth/signup', {
     pageTitle: 'signup',
     path: '/signup'
   });
