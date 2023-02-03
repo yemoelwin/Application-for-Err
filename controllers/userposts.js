@@ -1,4 +1,4 @@
-const products = [];
+const posts = [];
 
 // exports.getAddPost = (req, res, next) => {
 //     res.render('add-post', {
@@ -10,10 +10,10 @@ const products = [];
 // };
 
 exports.postAddPost = (req, res, next) => {
-    products.push({ title: req.body.title });
-    products.push({ category: req.body.category });
-    products.push({ description: req.body.description });
-    products.push({ image: req.body.image });
+    posts.push({ title: req.body.title });
+    posts.push({ category: req.body.category });
+    posts.push({ description: req.body.description });
+    posts.push({ image: req.body.image });
     res.redirect('/');
 };
 
@@ -25,7 +25,7 @@ const Post = require('../models/post');
 exports.getAddPost = (req, res, next) => {
     res.render('add-post', {
         pageTitle: 'Add Post',
-        path: '/admin/add-post',
+        path: '/user/add-post',
         editing: false
     });
 };
@@ -53,7 +53,7 @@ exports.getAddPost = (req, res, next) => {
 
 exports.getPosts = (req, res, next) => {
     res.render('index', {
-        prods: products,
+        prods: posts,
         pageTitle: 'Index',
         path: '/',
         // hasProducts: products.length > 0,

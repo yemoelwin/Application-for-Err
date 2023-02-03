@@ -18,8 +18,8 @@ const authRoutes = require('./routes/auth');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.use('/admin', addpostData.routes);
-app.use('/admin', addpostRoutes);
+// app.use('/user', addpostData.routes);
+app.use('/user', addpostRoutes);
 app.use(indexRoutes);
 app.use(authRoutes);
 // app.use("/user", userModels);
