@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"); */
 
 * {
   font-family: "Ubuntu", sans-serif;
 }
+
 /*  SideBar part Style */
 
 .stack-index {
@@ -54,7 +55,7 @@ a:hover {
   color: #000;
 }
 
-.sidebar-option > p {
+.sidebar-option>p {
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
 }
@@ -75,7 +76,7 @@ a:hover {
   border-right: 5px solid rgba(245, 162, 9);
 }
 
-.link-tag > i {
+.link-tag>i {
   font-size: 18px;
   margin-right: 5px;
   color: rgba(245, 162, 9);
@@ -108,7 +109,7 @@ a:hover {
   margin-bottom: 10px;
 }
 
-.main-top > h2 {
+.main-top>h2 {
   font-weight: 600;
   font-size: 25px;
 }
@@ -220,7 +221,7 @@ button {
   margin-bottom: 5px;
 }
 
-.all-option > p {
+.all-option>p {
   font-size: large;
 }
 
@@ -230,13 +231,13 @@ button {
   width: 100%;
 }
 
-.question-answer > a {
+.question-answer>a {
   color: #0151f0d8;
   margin-bottom: 10px;
   font-size: 1.1rem;
 }
 
-.question-answer > a:hover {
+.question-answer>a:hover {
   color: #022772d8;
 }
 
@@ -259,7 +260,7 @@ button {
   align-items: center;
 }
 
-.author > small {
+.author>small {
   color: #0151f0d8;
 }
 
