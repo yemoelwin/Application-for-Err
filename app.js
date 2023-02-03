@@ -2,10 +2,6 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const authRoute = require("./routes/auth");
-const addpostData = require("./routes/add-post");
-const indexRoutes = require("./routes/index");
-// const authRoutes = require("./routes/auth");
 
 // Middleware
 const app = express();
@@ -26,10 +22,10 @@ app.use('/admin', addpostRoutes);
 app.use(indexRoutes);
 app.use(authRoutes);
 // app.use("/user", userModels);
-app.use("/api/user", authRoute);
+// app.use("/api/user", authRoute);
 
 app.use((req, res, next) => {
-    res.status(404).render("404", { pageTitle: "Page Not Found", path: "login" });
+    res.status(404).render("404", { pageTitle: "Page Not Found" });
 });
 
 mongoose

@@ -1,12 +1,32 @@
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
-exports.postLogin = async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send("Email is invalid!");
+exports.getLogin = (req, res, next) => {
+  res.render('login', {
+    pageTitle: 'Login',
+    path: '/login'
+  });
+};
 
-  const validPass = await bcrypt.compare(req.body.password, user.password);
-  if (!validPass) return res.status(400).send("Email and pass do not match!");
+exports.postLogin = async (req, res, next) => {
+  const user = await User
+    .findOne({
+      email: req.body.email
+    });
+  if (!user)
+    return res
+      .status(400)
+      .send("Email is invalid!");
+
+  const validPass = await bcrypt
+    .compare(
+      req.body.password,
+      user.password
+    );
+  if (!validPass)
+    return res
+      .status(400)
+      .send("Email and pass do not match!");
 
   // Create and assign a token
 
@@ -14,12 +34,22 @@ exports.postLogin = async (req, res, next) => {
   res.json({ token: token });
 };
 
+exports.getRegister = (req, res, next) => {
+  res.render('signup', {
+    pageTitle: 'signup',
+    path: '/signup'
+  });
+};
+
+
 exports.postRegister = async (req, res, next) => {
   // Lets Validate The data Before We a user
 
   // Checking if the user is already in the database
-  const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("Email is already exists!");
+  const emailExist = await User
+    .findOne({ email: req.body.email });
+  if (emailExist) return res
+    .status(400).send("Email is already exists!");
 
   // Hash Passwords
   const salt = await bcrypt.genSalt(10);
@@ -33,7 +63,7 @@ exports.postRegister = async (req, res, next) => {
   });
   try {
     const savedUser = await user.save();
-    res.send(savedUser);
+    res.redirect('/login', savedUser);
   } catch (err) {
     res.status(400).send(err);
   }
