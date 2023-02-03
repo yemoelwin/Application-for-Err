@@ -1,7 +1,7 @@
 <%- include('includes/head.ejs') %>
-    <link rel="stylesheet" href="../css/All_Question.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto:ital,wght@0,400;1,900&display=swap');
+
     </style>
 </head>
 <body>
@@ -17,42 +17,47 @@
     </div>
 
     <div class="parent__div">
-        <div class="first__div"></div>
-        <main class="main__div"></main>
-        <div class="last__div"></div>
+        <div class="first__div">
+            
+        </div>
+
+        <main class="main__class">
+            <% if (prods.length > 0) { %>
+                <div class="main__div">
+                        <% prods.forEach((product) => { %>
+                        <div class="post__item">
+                            <div class="post__title">
+                                <h1><a href="/detail" class="h1__title"><%= product.title %></a></h1>
+                            </div>
+                            
+                            <!-- <div class="post__category">
+                                <div class="span_post__category">
+                                    <a href="#" class="category__padding"><%= product.category %></a>
+                                </div>
+                            </div> -->
+                            <span><%= product.category %></span>
+
+                            <div class="post__description">
+                                <p class="p__description"><%= product.description %></p>
+                            </div>
+
+                            <div>
+                                <img src="<%= product.image%>" alt="">
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <h1 id="NPF">No Post Found!</h1>
+            <% } %>
+        </main>
+
+        <div class="last__div">
+
+        </div>
     </div>
 
-    <!-- <% if (prods.length > 0) { %>
-        <div class="question-answer">
-            <% for (let product of prods) { %>
-                <label for="title"><a href="/detail"><%= product.title %></a></label>
-                <div class="question-types">
-                    <span class="question-tags"><%= product.category %></span>
-                    <span class="question-tags"><%= product.category %></span>
-                    <span class="question-tags"><%= product.category %></span>
-                </div> -->
-                <!-- <div>
-                    <img src="" alt="">
-                </div> -->
-                <!-- <div class="questions-asked"> -->
-                    <!-- <span class="question-tags">javascript</span>
-                    <span class="question-tags">react</span>
-                    <span class="question-tags">nodejs</span> -->
-                    <!-- <p><%= product.description %></p>
-                </div>
-            <% } %>
-        </div>
-    <% } else { %>
-            <h1>No Products Found!</h1>
-    <% } %> -->
-
-            <!-- <div class="author">
-                    <small>Timestamp</small>
-                        <div class="author-details">
-                            <i class="fa-solid fa-user-tie"></i>
-                            <a href="">MrCodeCamp</a>
-                        </div>
-                </div>  -->
+    
 
 <%- include('includes/script.ejs') %>
 

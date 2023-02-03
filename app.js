@@ -8,7 +8,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const addpostData = require('./routes/add-post');
+const addpostRoutes = require('./routes/add-post');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 
@@ -17,7 +17,8 @@ const authRoutes = require('./routes/auth');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', addpostData.routes);
+// app.use('/admin', addpostData.routes);
+app.use('/admin', addpostRoutes);
 app.use(indexRoutes);
 app.use(authRoutes);
 // app.use('/user', userModels);
