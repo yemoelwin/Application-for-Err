@@ -1,3 +1,4 @@
+const Post = require('../models/post');
 const posts = [];
 
 // exports.getAddPost = (req, res, next) => {
@@ -17,13 +18,8 @@ exports.postAddPost = (req, res, next) => {
     res.redirect('/');
 };
 
-
-
-const Post = require('../models/post');
-// const post = [];
-
 exports.getAddPost = (req, res, next) => {
-    res.render('add-post', {
+    res.render('user/add-post', {
         pageTitle: 'Add Post',
         path: '/user/add-post',
         editing: false
@@ -52,7 +48,7 @@ exports.getAddPost = (req, res, next) => {
 // };
 
 exports.getPosts = (req, res, next) => {
-    res.render('index', {
+    res.render('post/index', {
         prods: posts,
         pageTitle: 'Index',
         path: '/',
