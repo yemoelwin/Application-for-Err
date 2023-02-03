@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+const errorController = require('./controllers/404');
 // Middleware
 const app = express();
 
@@ -17,16 +18,14 @@ const authRoutes = require('./routes/auth');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.use('/admin', addpostData.routes);
-app.use('/admin', addpostRoutes);
+// app.use('/user', addpostData.routes);
+app.use('/user', addpostRoutes);
 app.use(indexRoutes);
 app.use(authRoutes);
 // app.use("/user", userModels);
 // app.use("/api/user", authRoute);
 
-app.use((req, res, next) => {
-    res.status(404).render("404", { pageTitle: "Page Not Found" });
-});
+app.use(errorController.get404);
 
 mongoose
     .connect(
