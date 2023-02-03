@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 
 // const rootDir = require('../util/path');
-const userpostsController = require('../controllers/userposts');
+const userpostsController = require('../controllers/indexposts');
 
 // const addpostData = require('./add-post');
 

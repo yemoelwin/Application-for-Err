@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 
-const userpostsController = require('../controllers/userposts');
+const userpostsController = require('../controllers/indexposts');
 
 // const rootDir = require('../util/path');
 

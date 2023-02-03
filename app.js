@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const addpostRoutes = require('./routes/add-post');
-const indexpostRoutes = require('./routes/indexpost');
+const indexpostRoutes = require('./routes/indexposts');
 const authRoutes = require('./routes/auth');
 
 // const userModels = require('./models/user');
