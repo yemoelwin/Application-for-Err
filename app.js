@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const addpostRoutes = require('./routes/add-post');
-const indexRoutes = require('./routes/index');
+const indexpostRoutes = require('./routes/indexpost');
 const authRoutes = require('./routes/auth');
 
 // const userModels = require('./models/user');
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // app.use('/user', addpostData.routes);
 app.use('/user', addpostRoutes);
-app.use(indexRoutes);
+app.use(indexpostRoutes);
 app.use(authRoutes);
 // app.use("/user", userModels);
 // app.use("/api/user", authRoute);
