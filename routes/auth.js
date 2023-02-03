@@ -9,11 +9,7 @@ const authController = require("../controllers/auth");
 
 router.post("/login", authController.postLogin);
 
-<<<<<<< HEAD
-// router.post("/login", (req, res) => {});
-=======
 // Register
->>>>>>> PageDetail
 
 router.post("/register", authController.postRegister);
 
