@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+const errorController = require('./controllers/404');
 // Middleware
 const app = express();
 
@@ -24,9 +25,7 @@ app.use(authRoutes);
 // app.use("/user", userModels);
 // app.use("/api/user", authRoute);
 
-app.use((req, res, next) => {
-    res.status(404).render("404", { pageTitle: "Page Not Found" });
-});
+app.use(errorController.get404);
 
 mongoose
     .connect(
