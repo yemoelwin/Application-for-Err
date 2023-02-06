@@ -1,25 +1,25 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="../css/post.css">
     </head>
 
     <body>
 
-        <%- include('includes/navigation.ejs') %>
+        <%- include('../includes/navigation.ejs') %>
 
             <section class="post-section">
 
                 <main class="main_error-form">
 
-                    <form class="error-form" action="/admin/add-post" method="POST">
+                    <form class="error-form" action="/user/add-post" method="POST">
                         <div class="error_form-control">
                             <label for="title">Error Title</label>
                             <input type="text" name="title" id="title">
                         </div>
 
-                        <div class="error_form-control">
+                        <!-- <div class="error_form-control">
                             <label for="category">Category</label>
                             <input type="text" name="category" id="category">
-                        </div>
+                        </div> -->
 
                         <div class="error_form-control">
                             <label for="description">Description</label>
@@ -41,6 +41,6 @@
 
             </section>
 
-            <%- include('includes/script.ejs') %>
+            <%- include('../includes/script.ejs') %>
 
-                <%- include('includes/end.ejs') %>
+                <%- include('../includes/end.ejs') %>

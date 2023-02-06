@@ -2,37 +2,39 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const authRoute = require("./models/auth");
 
+const errorController = require('./controllers/404');
+// Middleware
 const app = express();
 
-app.set("view engine", "ejs");
-app.set("views", "views");
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
-const addpostData = require("./routes/add-post");
-const indexRoutes = require("./routes/index");
-// const authRoutes = require("./routes/auth");
+const addpostRoutes = require('./routes/add-post');
+const indexpostRoutes = require('./routes/indexposts');
+const authRoutes = require('./routes/auth');
 
 // const userModels = require('./models/user');
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/admin", addpostData.routes);
-app.use(indexRoutes);
-// app.use(authRoutes);
-// app.use('/user', userModels);
+// app.use('/user', addpostData.routes);
+app.use('/user', addpostRoutes);
+app.use(indexpostRoutes);
+app.use(authRoutes);
+// app.use("/user", userModels);
 // app.use("/api/user", authRoute);
 
-app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "Page Not Found" });
-});
+app.use(errorController.get404);
 
 mongoose
-  .connect(
-    "mongodb+srv://itvisionhubs:itvisionhub0001xpl@cluster01.kzbsplu.mongodb.net/errorhandling"
-  )
-  .then((result) => {
-    app.listen(8080, console.log("Do your job right now!"));
-  })
-  .catch((err) => console.log(err));
+    .connect(
+        "mongodb+srv://itvisionhubs:itvisionhub0001xpl@cluster01.kzbsplu.mongodb.net/errorhandling"
+    )
+    .then((result) => {
+        app.listen(
+            8080,
+            console.log("Do your job right now : http://localhost:8080")
+        );
+    })
+    .catch((err) => console.log(err));
