@@ -2,36 +2,30 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const authRoute = require("./models/auth");
 
+const errorController = require("./controllers/404");
+// Middleware
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-const authRoute = require("./routes/auth");
-const addpostData = require("./routes/add-post");
-const indexRoutes = require("./routes/index");
-// const authRoutes = require("./routes/auth");
-
-// Middleware
-app.set("view engine", "ejs");
-app.set("views", "views");
-app.use(express.json());
+const addpostRoutes = require("./routes/add-post");
+const indexpostRoutes = require("./routes/indexposts");
+const authRoutes = require("./routes/auth");
 
 // const userModels = require('./models/user');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// Route Middleware
-app.use("/admin", addpostData.routes);
-app.use(indexRoutes);
+// app.use('/user', addpostData.routes);
+app.use("/user", addpostRoutes);
+app.use(indexpostRoutes);
+app.use(authRoutes);
 // app.use("/user", userModels);
-app.use("/api/user", authRoute);
+// app.use("/api/user", authRoute);
 
-app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "Page Not Found", path: "login" });
-});
+app.use(errorController.get404);
 
 mongoose
   .connect(

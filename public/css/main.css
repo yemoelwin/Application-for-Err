@@ -1,15 +1,101 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif !important;
-}
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+
+
+/* div {
+    border: 1px solid rgb(90, 4, 90);
+} */
 
 .parent__div {
-    border: 1px solid purple;
+
     width: 100%;
     height: max-content;
-    /* display: ; */
+    display: grid;
+    grid-template-columns: 22% 56% 22%;
+
+}
+
+.first__div {
+    height: auto;
+    border-right: .5px solid rgb(203, 202, 202);
+}
+
+.main__class {
+    width: 100%;
+}
+
+.main__div {
+    border-bottom: .5px solid rgb(203, 202, 202);
+    margin: 3rem 4rem;
+}
+
+.last__div {
+    height: auto;
+    border-left: .5px solid rgb(203, 202, 202);
+}
+
+.post__item {
+    text-align: left;
+    height: max-content;
+}
+
+.post__category {
+    position: relative;
+    height: 40px;
+    margin: .5rem 0;
+}
+
+.span_post__category {
+    position: absolute;
+    width: 100%;
+    top: .5rem;
+    left: 0;
+}
+
+.h1__title {
+    color: rgb(39, 133, 206);
+    font-size: 19px;
+    font-weight: 0;
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
+.h1__title:hover {
+    color: rgb(7, 142, 246);
+}
+
+.category__padding {
+    padding: .4rem .4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: .5rem;
+    background-color: rgb(19, 122, 207);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.category__padding:hover {
+    background-color: rgb(17, 103, 173);
+}
+
+.p__description {
+    font-size: 19px;
+    letter-spacing: .5px;
+    margin: .5rem 0 1rem 0;
+}
+
+#NPF {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: red;
 }
