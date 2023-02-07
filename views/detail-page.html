@@ -11,8 +11,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../css/detail-page.css" />
-    <link rel="stylesheet" href="../css/nav-bar.css" />
+    <link rel="stylesheet" href="detail-page.css" />
+    <link rel="stylesheet" href="nav-bar.css" />
     <title>Detail</title>
   </head>
   <body>
@@ -40,132 +40,34 @@
       </div>
     </header>
 
-    <div class="stack-index">
-      <div class="stack-index-content">
-        <div class="sidebar">
-          <div class="sidebar-container">
-            <div class="sidebar-options">
-              <div class="sidebar-option">
-                <a href="">Home</a>
-              </div>
-              <div class="sidebar-option">
-                <a href="">PUBLIC</a>
-                <div class="link">
-                  <div class="link-tag">
-                    <i class="fa-solid fa-globe"></i>
-                    <a href="">Questions</a>
-                  </div>
-                  <div class="tags">
-                    <p>Tags</p>
-                    <p>Users</p>
-                  </div>
-                </div>
-              </div>
-              <div class="sidebar-option">
-                <p>COLLECTIVES</p>
-                <div class="link">
-                  <div class="link-tag">
-                    <i class="fa-regular fa-star"></i
-                    ><a href="">Explore Collectives</a>
-                  </div>
-                  <div class="tags"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main">
-          <div class="main-container">
-            <div class="main-top">
-              <h2 class="main-question">This is question title</h2>
-              <button><a href="/admin/add-post"> Ask Question</a></button>
-            </div>
-            <div class="main-description">
-              <div class="info">
-                <p>Timestamp</p>
-                <p>Avtive <span>today</span></p>
-                <p>View<span>15 times</span></p>
-              </div>
-            </div>
-            <div class="all-questions-container">
-              <div class="all-questions-left">
-                <div class="all-options">
-                  <p class="arrow">▲</p>
-                  <p>0</p>
-                  <p class="arrow">▼</p>
-                  <i class="fa-solid fa-bookmark"></i>
-                  <i class="fa-solid fa-clock-rotate-left"></i>
-                </div>
-              </div>
-              <div class="question-answer">
-                <p>This is question body</p>
-                <p></p>
-                <div class="author">
-                  <small>asked "Timestamp"</small>
-                  <div class="auth-details">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <p>MrCodeCamp</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="comments">
-              <div class="comment">
-                <p>This is comment - <span>User name</span></p>
-                <small>Timestamp</small>
-              </div>
-
-              <div class="addcmt">
-                <p class="showaddcmt" style="cursor: pointer; color: blue">
-                  Add a comment
-                </p>
-                <div class="title">
-                  <ion-icon name="close-outline" class="closeBox"></ion-icon>
-                  <textarea
-                    name=""
-                    id="closetextBox"
-                    cols="30"
-                    rows="10"
-                    placeholder="Add your comment ...."
-                  ></textarea>
-
-                  <button style="color: blue; background-color: white">
-                    Add comment
-                  </button>
-                  <button style="color: red; background-color: white">
-                    Discard
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- The End of Header Section -->
+    <div class="detail__pages">
+      <div class="title__section">
+        <h3>Error Description Title questions</h3>
+        <small
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
+          quis eius eum tenetur reprehenderit saepe voluptate? Ipsam, aliquam
+          facere?</small
+        >
       </div>
+      <div class="img__section">
+        <img
+          src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+        />
+      </div>
+      <div class="textarea__section"></div>
+      <button>Add comment</button>
     </div>
 
-    <% if (prods.length > 0) { %>
-        <div class="question-answer">
-            <% for (let product of prods) { %>
-                <label for="title"><a href="/detail"><%= product.title %></a></label>
-                <div class="question-types">
-                    <span class="question-tags"><%= product.category %></span>
-                    <span class="question-tags"><%= product.category %></span>
-                    <span class="question-tags"><%= product.category %></span>
-                </div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div class="questions-asked">
-                    <p><%= product.description %></p>
-                </div>
-            <% } %>
-        </div>
-            <% } else { %>
-                <h1>No Products Found!</h1>
-                <% } %>
-
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script src="../js/nav-bar.js"></script>
   </body>
 </html>
