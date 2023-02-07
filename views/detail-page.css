@@ -1,0 +1,53 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");s */
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  SideBar part Style */
+
+.detail__pages {
+  position: relative;
+  top: 6rem;
+  color: blue;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  text-align: center;
+}
+
+.title__section {
+  text-align: center;
+  width: 20rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.title__section h3 {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+small {
+  color: #000000;
+}
+img {
+  /* margin: 0 2rem; */
+  width: 50%;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 10rem;
+  border-radius: 1rem;
+}
+
+button:hover {
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+}

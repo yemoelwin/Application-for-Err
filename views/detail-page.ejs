@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/detail-page.css" />
+    <link rel="stylesheet" href="../css/nav-bar.css" />
+    <title>Detail</title>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">Vision</a>
+
+      <div class="group">
+        <ul class="navigation">
+          <li><a href="/user/add-post">Add Post</a></li>
+          <li><a href="/user/add-post">All Questions</a></li>
+          <li><a href="">Login</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        </ul>
+
+        <div class="search">
+          <span class="icon">
+            <ion-icon name="search-outline" class="searchBtn"></ion-icon>
+            <ion-icon name="close-outline" class="closeBtn"></ion-icon>
+          </span>
+        </div>
+        <ion-icon name="menu-outline" class="menuToggle"></ion-icon>
+      </div>
+
+      <div class="searchBox">
+        <input type="text" placeholder="Search here ...." />
+      </div>
+    </header>
+
+    <div class="stack-index">
+      <div class="stack-index-content">
+        <div class="sidebar">
+          <div class="sidebar-container">
+            <div class="sidebar-options">
+              <div class="sidebar-option">
+                <a href="">Home</a>
+              </div>
+              <div class="sidebar-option">
+                <a href="">PUBLIC</a>
+                <div class="link">
+                  <div class="link-tag">
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="">Questions</a>
+                  </div>
+                  <div class="tags">
+                    <p>Tags</p>
+                    <p>Users</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar-option">
+                <p>COLLECTIVES</p>
+                <div class="link">
+                  <div class="link-tag">
+                    <i class="fa-regular fa-star"></i
+                    ><a href="">Explore Collectives</a>
+                  </div>
+                  <div class="tags"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main-container">
+            <div class="main-top">
+              <h2 class="main-question">This is question title</h2>
+              <button><a href="/admin/add-post"> Ask Question</a></button>
+            </div>
+            <div class="main-description">
+              <div class="info">
+                <p>Timestamp</p>
+                <p>Avtive <span>today</span></p>
+                <p>View<span>15 times</span></p>
+              </div>
+            </div>
+            <div class="all-questions-container">
+              <div class="all-questions-left">
+                <div class="all-options">
+                  <p class="arrow">▲</p>
+                  <p>0</p>
+                  <p class="arrow">▼</p>
+                  <i class="fa-solid fa-bookmark"></i>
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+              </div>
+              <div class="question-answer">
+                <p>This is question body</p>
+                <p></p>
+                <div class="author">
+                  <small>asked "Timestamp"</small>
+                  <div class="auth-details">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <p>MrCodeCamp</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="comments">
+              <div class="comment">
+                <p>This is comment - <span>User name</span></p>
+                <small>Timestamp</small>
+              </div>
+
+              <div class="addcmt">
+                <p class="showaddcmt" style="cursor: pointer; color: blue">
+                  Add a comment
+                </p>
+                <div class="title">
+                  <ion-icon name="close-outline" class="closeBox"></ion-icon>
+                  <textarea
+                    name=""
+                    id="closetextBox"
+                    cols="30"
+                    rows="10"
+                    placeholder="Add your comment ...."
+                  ></textarea>
+
+                  <button style="color: blue; background-color: white">
+                    Add comment
+                  </button>
+                  <button style="color: red; background-color: white">
+                    Discard
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="../js/nav-bar.js"></script>
+  </body>
+</html>
