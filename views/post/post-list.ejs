@@ -1,13 +1,10 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="../css/main.css" />
-    <style>
-
-    </style>
 </head>
 <body>
     <%- include('../includes/navigation.ejs') %>
 
-    <div class="x_container">
+    <!-- <div class="x_container">
         <div class="xx_container">
         <h1 class="h1-color">
             <span class="span-color1">Failure</span>
@@ -19,7 +16,7 @@
             with the burma's largest code error solution website
         </h4>
         </div>
-    </div>
+    </div> -->
 
     <div class="parent__div">
         <div class="first__div">
@@ -32,7 +29,7 @@
                         <% prods.forEach((post) => { %>
                         <div class="post__item">
                             <div class="post__title">
-                                <h1><a href="/detail" class="h1__title"><%= post.title %></a></h1>
+                                <h1><a href="/detail-page" class="h1__title"><%= post.title %></a></h1>
                             </div>
                             
                             <!-- <div class="post__category">
@@ -46,7 +43,7 @@
                                 <p class="p__description"><%= post.description %></p>
                             </div>
 
-                            <div>
+                            <div class="imgclass">
                                 <img src="<%= post.imageUrl%>" alt="">
                             </div>
                         </div>

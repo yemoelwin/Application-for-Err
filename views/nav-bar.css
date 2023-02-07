@@ -149,20 +149,22 @@ header .search {
 
 /* container */
 
-/* .x_container {
+.x_container {
     margin: 0;
     padding: 0;
     max-width: 100%;
     max-height: max-content;
     box-sizing: inherit;
     line-height: 3.5rem;
-} */
+}
 
-/*.xx_container {
+.xx_container {
+    /* padding-top: 90px;
+    padding-bottom: 90px; */
     padding: 10rem 0 15rem 0;
     text-align: center;
     text-shadow: #212529;
-    font-family: 'Roboto', sans-serif !important;
+    /* font-family: 'Roboto', sans-serif !important; */
     letter-spacing: 1px;
     background-color: white !important;
     height: 350px;
@@ -172,6 +174,7 @@ header .search {
 
 .h1-color {
     font-size: 40px;
+    /* font-weight: 2700; */
 }
 
 .span-color1,
@@ -187,7 +190,7 @@ header .search {
 .h4-color {
     font-size: 17px;
     color: rgb(0, 0, 0);
-} */
+}
 
 
 @media (max-width: 800px) {

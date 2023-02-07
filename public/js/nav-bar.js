@@ -43,3 +43,4 @@ closeBox.onclick = function () {
     closetextBox.classList.remove('active');
     // closetextBox.classList.remove('erase');
 };
+

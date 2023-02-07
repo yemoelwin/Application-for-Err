@@ -17,10 +17,12 @@
 .parent__div {
 
     width: 100%;
-    height: max-content;
+    height: 40rem;
     display: grid;
     grid-template-columns: 22% 56% 22%;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 .first__div {
@@ -30,6 +32,7 @@
 
 .main__class {
     width: 100%;
+    margin-top: 10%;
 }
 
 .main__div {
@@ -61,7 +64,7 @@
 }
 
 .h1__title {
-    color: rgb(39, 133, 206);
+    color: rgb(64, 123, 249);
     font-size: 19px;
     font-weight: 0;
     letter-spacing: .5px;
@@ -69,7 +72,7 @@
 }
 
 .h1__title:hover {
-    color: rgb(7, 142, 246);
+    color: rgb(4, 102, 176);
 }
 
 .category__padding {
@@ -98,4 +101,39 @@
     margin-left: 1rem;
     margin-top: 1rem;
     color: red;
+}
+
+.imgclass {
+    border-bottom: 1px solid rgb(203, 202, 202);
+    margin-bottom: 1rem;
+}
+
+.classbutton {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(203, 202, 202);
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+.editbtn,
+.deletebtn {
+    padding: .4rem;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid rgb(47, 47, 92);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.editbtn {
+    margin: 0 1rem;
+}
+
+.deletebtn {
+    color: red;
+}
+
+.editbtn:hover,
+.deletebtn:hover {
+    background-color: rgb(230, 230, 230);
 }

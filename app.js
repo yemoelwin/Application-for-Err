@@ -10,17 +10,28 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", "views");
 
+<<<<<<< HEAD
 const addpostRoutes = require("./routes/add-post");
 const indexpostRoutes = require("./routes/indexposts");
 const authRoutes = require("./routes/auth");
+=======
+const userRoutes = require('./routes/user');
+const postlistRoutes = require('./routes/post-list');
+const authRoutes = require('./routes/auth');
+>>>>>>> e5121a08dd1a2b967ea6e876bf2625e426dc5441
 
 // const userModels = require('./models/user');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // app.use('/user', addpostData.routes);
+<<<<<<< HEAD
 app.use("/user", addpostRoutes);
 app.use(indexpostRoutes);
+=======
+app.use('/user', userRoutes);
+app.use(postlistRoutes);
+>>>>>>> e5121a08dd1a2b967ea6e876bf2625e426dc5441
 app.use(authRoutes);
 // app.use("/user", userModels);
 // app.use("/api/user", authRoute);
@@ -28,6 +39,7 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 mongoose
+<<<<<<< HEAD
   .connect(
     "mongodb+srv://itvisionhubs:itvisionhub0001xpl@cluster01.kzbsplu.mongodb.net/errorhandling"
   )
@@ -38,3 +50,15 @@ mongoose
     );
   })
   .catch((err) => console.log(err));
+=======
+    .connect(
+        "mongodb+srv://itvisionhubs:itvisionhub0001xpl@cluster01.kzbsplu.mongodb.net/postdata"
+    )
+    .then((result) => {
+        app.listen(
+            8080,
+            console.log("Do your job right now : http://localhost:8080")
+        );
+    })
+    .catch((err) => console.log(err));
+>>>>>>> e5121a08dd1a2b967ea6e876bf2625e426dc5441
