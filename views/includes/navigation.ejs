@@ -3,6 +3,13 @@
 
     <div class="group">
         <ul class="navigation">
+            <li>
+            <a
+            class="<%= path === '/profile' %> ? 'active' : '' %>"
+            href="/profile"
+            >Profile</a
+            >
+        </li>
         <li>
             <a
             class="<%= path === '/user/add-post' %> ? 'active' : '' %>"
@@ -12,8 +19,8 @@
         </li>
         <li>
             <a
-            class="<%= path === '/user/add-post' %> ? 'active' : '' %>"
-            href="/user/add-post"
+            class="<%= path === '/detail-page' %> ? 'active' : '' %>"
+            href="/detail-page"
             >All Questions</a
             >
         </li>
