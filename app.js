@@ -10,7 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const addpostRoutes = require('./routes/add-post');
+const userRoutes = require('./routes/user');
 const postlistRoutes = require('./routes/post-list');
 const authRoutes = require('./routes/auth');
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // app.use('/user', addpostData.routes);
-app.use('/user', addpostRoutes);
+app.use('/user', userRoutes);
 app.use(postlistRoutes);
 app.use(authRoutes);
 // app.use("/user", userModels);

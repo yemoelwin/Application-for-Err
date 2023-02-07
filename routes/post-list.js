@@ -11,6 +11,8 @@ const router = express.Router();
 
 router.get('/', postsController.getPosts);
 
+router.get('/profile', postsController.getProfilePosts);
+
 router.get('/detail-page', postsController.getPostDetail);
 
 module.exports = router;        

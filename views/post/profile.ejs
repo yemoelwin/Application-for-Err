@@ -4,20 +4,6 @@
 <body>
     <%- include('../includes/navigation.ejs') %>
 
-    <!-- <div class="x_container">
-        <div class="xx_container">
-        <h1 class="h1-color">
-            <span class="span-color1">Failure</span>
-            <span class="span-color2"> Is Not </span
-            ><span class="span-color3">Lose</span>
-        </h1>
-        <h2 class="h2-color">Work Done</h2>
-        <h4 class="h4-color">
-            with the burma's largest code error solution website
-        </h4>
-        </div>
-    </div> -->
-
     <div class="parent__div">
         <div class="first__div">
             
@@ -37,14 +23,21 @@
                                     <a href="#" class="category__padding"><%= post.category %></a>
                                 </div>
                             </div>  -->
-                            <span><%= post.category %></span>
+                            <!-- <span><%= post.category %></span> -->
 
                             <div class="post__description">
                                 <p class="p__description"><%= post.description %></p>
                             </div>
 
-                            <div class="imgclass">
+                            <div>
                                 <img src="<%= post.imageUrl%>" alt="">
+                            </div>
+
+                            <div class="classbutton">
+                                <a href="" class="editbtn">Edit</a>
+
+                                <button class="deletebtn" type="button" onclick="deleteProduct(this)">Delete</button>
+                                <!-- </form> -->
                             </div>
                         </div>
                     <% }) %>

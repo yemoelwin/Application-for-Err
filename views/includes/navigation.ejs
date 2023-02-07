@@ -1,8 +1,15 @@
 <header>
-    <a class="logo <%= path === '/' %> ? 'active' : '' %>" href="/">Vision</a>
+    <a class="logo" href="/">Vision</a>
 
     <div class="group">
         <ul class="navigation">
+            <li>
+            <a
+            class="<%= path === '/profile' %> ? 'active' : '' %>"
+            href="/profile"
+            >Profile</a
+            >
+        </li>
         <li>
             <a
             class="<%= path === '/user/add-post' %> ? 'active' : '' %>"

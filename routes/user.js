@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 
-const useraddpostsController = require('../controllers/post');
+const useraddpostsController = require('../controllers/user');
 
 // const rootDir = require('../util/path');
 
@@ -13,6 +13,8 @@ const router = express.Router();
 router.get('/add-post', useraddpostsController.getAddPost);
 
 router.post('/add-post', useraddpostsController.postAddPost);
+
+// router.get('/profile', useraddpostsController.getPosts);
 
 // router.get('/all-questions', (req, res, next) => {
 //     res.sendFile(path.join(rootDir, 'views', 'add.post.html'));

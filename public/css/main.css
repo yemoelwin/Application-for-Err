@@ -102,3 +102,38 @@
     margin-top: 1rem;
     color: red;
 }
+
+.imgclass {
+    border-bottom: 1px solid rgb(203, 202, 202);
+    margin-bottom: 1rem;
+}
+
+.classbutton {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(203, 202, 202);
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+.editbtn,
+.deletebtn {
+    padding: .4rem;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid rgb(47, 47, 92);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.editbtn {
+    margin: 0 1rem;
+}
+
+.deletebtn {
+    color: red;
+}
+
+.editbtn:hover,
+.deletebtn:hover {
+    background-color: rgb(230, 230, 230);
+}
