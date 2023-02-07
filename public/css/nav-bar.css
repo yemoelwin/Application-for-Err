@@ -149,6 +149,9 @@ header .search {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e5121a08dd1a2b967ea6e876bf2625e426dc5441
 /* .x_container {
     margin: 0;
     padding: 0;
@@ -172,6 +175,7 @@ header .search {
 
 .h1-color {
     font-size: 40px;
+<<<<<<< HEAD
 =======
 .x_container {
   margin: 0;
@@ -228,6 +232,8 @@ header .search {
   font-size: 40px;
   /* font-weight: 2700; */
 >>>>>>> DetailPage
+=======
+>>>>>>> e5121a08dd1a2b967ea6e876bf2625e426dc5441
 }
 
 .span-color1,
@@ -246,6 +252,7 @@ header .search {
     font-size: 17px;
     color: rgb(0, 0, 0);
 } */
+<<<<<<< HEAD
 =======
   font-size: 17px;
   color: rgb(0, 0, 0);
@@ -256,6 +263,9 @@ header .search {
   color: rgb(0, 0, 0);
 }
 >>>>>>> DetailPage
+=======
+
+>>>>>>> e5121a08dd1a2b967ea6e876bf2625e426dc5441
 
 @media (max-width: 800px) {
   .searchBtn {
