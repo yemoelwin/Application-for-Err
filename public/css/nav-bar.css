@@ -148,6 +148,7 @@ header .search {
 /* container */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* .x_container {
     margin: 0;
     padding: 0;
@@ -199,6 +200,34 @@ header .search {
   font-size: 40px;
   /* font-weight: 2700; */
 >>>>>>> DetailPage
+=======
+.x_container {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  max-height: max-content;
+  box-sizing: inherit;
+  line-height: 3.5rem;
+}
+
+.xx_container {
+  /* padding-top: 90px;
+    padding-bottom: 90px; */
+  padding: 10rem 0 15rem 0;
+  text-align: center;
+  text-shadow: #212529;
+  /* font-family: 'Roboto', sans-serif !important; */
+  letter-spacing: 1px;
+  background-color: white !important;
+  height: 350px;
+  border-top: 3px solid rgb(6, 6, 96);
+  border-bottom: 1px solid rgb(6, 6, 96);
+}
+
+.h1-color {
+  font-size: 40px;
+  /* font-weight: 2700; */
+>>>>>>> DetailPage
 }
 
 .span-color1,
@@ -213,9 +242,15 @@ header .search {
 
 .h4-color {
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: 17px;
     color: rgb(0, 0, 0);
 } */
+=======
+  font-size: 17px;
+  color: rgb(0, 0, 0);
+}
+>>>>>>> DetailPage
 =======
   font-size: 17px;
   color: rgb(0, 0, 0);
