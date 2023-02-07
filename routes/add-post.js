@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 
-const userpostsController = require('../controllers/indexposts');
+const useraddpostsController = require('../controllers/post');
 
 // const rootDir = require('../util/path');
 
@@ -10,9 +10,9 @@ const userpostsController = require('../controllers/indexposts');
 
 const router = express.Router();
 
-router.get('/add-post', userpostsController.getAddPost);
+router.get('/add-post', useraddpostsController.getAddPost);
 
-router.post('/add-post', userpostsController.postAddPost);
+router.post('/add-post', useraddpostsController.postAddPost);
 
 // router.get('/all-questions', (req, res, next) => {
 //     res.sendFile(path.join(rootDir, 'views', 'add.post.html'));
