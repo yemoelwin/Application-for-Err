@@ -1,6 +1,5 @@
 <head>
-  <%- include('../includes/head.ejs') %> 
-  <%- include('../includes/css.ejs') %>
+  <%- include('../includes/head.ejs') %> <%- include('../includes/css.ejs') %>
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
@@ -18,14 +17,13 @@
         <label></label>
       </div>
       <div class="infield">
-        <input type="password" placeholder="Password" />
+        <input type="password" placeholder="Password" name="password" />
         <label></label>
       </div>
       <a href="#" class="forgot">Forgot your password?</a>
-      <button>Login</button>
+      <button type="submit">Login</button>
     </form>
   </div>
 
-  <%- include('../includes/script.ejs') %>
-  <%- include('../includes/end.ejs') %>
-
+  <%- include('../includes/script.ejs') %> <%- include('../includes/end.ejs') %>
+</body>

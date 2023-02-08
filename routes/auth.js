@@ -1,19 +1,16 @@
-// require("dotenv").config();
-const path = require("path");
 const express = require("express");
-// const rootDir = require("../util/path");
 const router = express.Router();
 const authController = require("../controllers/auth");
+// const { check, body } = require("express-validator/check");
 
 // LOGIN SECTION
-router.get('/login', authController.getLogin);
+router.get("/login", authController.getLogin);
 
-router.post('/login', authController.postLogin);
+router.get("/signup", authController.getRegister);
 
 // Register
+router.post("/login", authController.postLogin);
 
-router.get('/signup', authController.getRegister);
-
-router.post('/signup', authController.postRegister);
+router.post("/signup", authController.postRegister);
 
 module.exports = router;
