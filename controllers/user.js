@@ -10,12 +10,12 @@ exports.getAddPost = (req, res, next) => {
 
 exports.postAddPost = (req, res, next) => {
     const title = req.body.title;
-    // const category = req.body.category;
+    const category = req.body.category;
     const description = req.body.description;
     const imageUrl = req.body.imageUrl;
     const post = new Post({
         title: title,
-        // category: category,
+        category: category,
         description: description,
         imageUrl: imageUrl
     });
@@ -28,6 +28,21 @@ exports.postAddPost = (req, res, next) => {
             console.log(err);
         });
 };
+
+exports.getProfilePosts = (req, res, next) => {
+    Post.find()
+        .then(posts => {
+            res.render('user/profile', {
+                prods: posts,
+                pageTitle: 'Your Posts',
+                path: '/profile'
+            });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
 
 // exports.getPosts = (req, res, next) => {
 //     Post.findById()

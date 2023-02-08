@@ -14,7 +14,9 @@ router.get('/add-post', useraddpostsController.getAddPost);
 
 router.post('/add-post', useraddpostsController.postAddPost);
 
-// router.get('/profile', useraddpostsController.getPosts);
+router.get('/profile', useraddpostsController.getProfilePosts);
+
+router.get('/');
 
 // router.get('/all-questions', (req, res, next) => {
 //     res.sendFile(path.join(rootDir, 'views', 'add.post.html'));

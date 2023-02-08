@@ -1,0 +1,64 @@
+<%- include('../includes/head.ejs') %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="detail-page.css" />
+  </head>
+  <body>
+
+    <%- include('../includes/navigation.ejs') %>
+
+    <!-- The End of Header Section -->
+    <!-- <div class="detail__pages">
+      <div class="title__section">
+        <h3><%= post.</h3>
+        <small
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus et
+          quis eius eum tenetur reprehenderit saepe voluptate? Ipsam, aliquam
+          facere lorem?</small
+        >
+      </div>
+      <div class="img__section">
+        <img
+          src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+          alt=""
+        />
+      </div> -->
+            <main class="centered">
+                <h1><%= post.title %></h1>
+                <hr>
+                <div>
+                  <a href="#" class="category__padding"><%= post.category %></a>
+                </div>
+                <p><%= post.description %></p>
+                <div>
+                      <img src="<%= post.imageUrl%>" alt="<%= post.title %>">
+                </div>
+            </main>
+
+      
+      <div class="addcmt">
+        <p class="showaddcmt" style="cursor: pointer; color: blue">
+          Add a comment
+        </p>
+        <div class="title">
+          <ion-icon name="close-outline" class="closeBox"></ion-icon>
+          <textarea name="" id="closetextBox" cols="30" rows="10" placeholder="Add your comment ...."></textarea>
+
+          <button style="color: blue; background-color: white">
+            Add Comment
+          </button>
+          
+          <button style="color: red; background-color: white">
+            Discard
+          </button>
+    </div>
+
+    
+    <%- include('../includes/script.ejs') %> 
+    
+    <%- include('../includes/end.ejs') %>

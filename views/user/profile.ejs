@@ -18,26 +18,26 @@
                                 <h1><a href="/detail-page" class="h1__title"><%= post.title %></a></h1>
                             </div>
                             
-                            <!-- <div class="post__category">
+                            <div class="post__category">
                                 <div class="span_post__category">
                                     <a href="#" class="category__padding"><%= post.category %></a>
                                 </div>
-                            </div>  -->
+                            </div> 
                             <!-- <span><%= post.category %></span> -->
 
                             <div class="post__description">
                                 <p class="p__description"><%= post.description %></p>
                             </div>
 
-                            <div>
-                                <img src="<%= post.imageUrl%>" alt="">
+                            <div class="imgclass">
+                                <img src="<%= post.imageUrl%>" alt="<%= post.title %>">
                             </div>
 
                             <div class="classbutton">
-                                <a href="" class="editbtn">Edit</a>
-
-                                <button class="deletebtn" type="button" onclick="deleteProduct(this)">Delete</button>
-                                <!-- </form> -->
+                                <a href="/user/edit-post" class="editbtn">Edit</a>
+                                <form action="/user/delete-post" method="POST">
+                                    <button class="deletebtn" type="submit">Delete Posts</button>
+                                </form>
                             </div>
                         </div>
                     <% }) %>
