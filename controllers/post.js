@@ -16,34 +16,28 @@ exports.getPosts = (req, res, next) => {
         });
 };
 
-exports.getProfilePosts = (req, res, next) => {
-    Post.find()
-        .then(posts => {
-            res.render('post/profile', {
-                prods: posts,
-                pageTitle: 'Your Posts',
-                path: '/profile'
-            });
-        })
-        .catch(err => {
-            console.log(err);
-        });
-};
-
 
 exports.getPostDetail = (res, req, next) => {
     const prodId = req.params.postId;
-    Post.findById(prodId)
-        .then(post => {
-            res.render('post/detail-page', {
-                post: post,
-                pageTitle: post.title,
-                path: '/detail-page'
-            });
-        })
-        .catch(err => {
-            console.log(err);
+    // console.log(prodId);
+    // res.redirect('/');
+    Post.findById(prodId, post => {
+        res.render('post/detail-page', {
+            post: post,
+            pageTitle: post.title,
+            path: '/profile'
         });
+    });
+    // .then(post => {
+    //     res.render('post/detail-page', {
+    //         post: post,
+    //         pageTitle: post.title,
+    //         path: '/profile'
+    //     });
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // });
 };
 
 
