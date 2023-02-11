@@ -14,15 +14,29 @@ app.set("views", "views");
 const userRoutes = require("./routes/user");
 const postlistRoutes = require("./routes/post-list");
 const authRoutes = require("./routes/auth");
+const { deleteUser } = require("./controllers/auth");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/user", userRoutes);
 app.use(postlistRoutes);
-app.use(authRoutes);
+app.use("/auth", authRoutes);
+app.use(deleteUser);
 
 app.use(errorController.get404);
+
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.send({
+    error: {
+      status: err.status || 500,
+      message: err.message,
+    },
+  });
+});
 
 mongoose
   .connect(
