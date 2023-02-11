@@ -1,13 +1,12 @@
 <head>
-  <%- include('../includes/head.ejs') %> 
-  <%- include('../includes/css.ejs') %>
+  <%- include('../includes/head.ejs') %> <%- include('../includes/css.ejs') %>
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
 
   <div class="container" id="container">
     <div class="form-container sign-up-container">
-      <form action="#">
+      <form action="/auth/signup" method="POST">
         <h1>Create Account</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -16,7 +15,7 @@
         </div>
         <span>or use your email for registration</span>
         <div class="infield">
-          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Name" name="name" />
           <label></label>
         </div>
         <div class="infield">
@@ -24,14 +23,14 @@
           <label></label>
         </div>
         <div class="infield">
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" name="password" />
           <label></label>
         </div>
         <div class="infield">
           <input type="confirmPassword" placeholder="Confirm Password" />
           <label></label>
         </div>
-        <button><span class="signup">Sign Up</span></button>
+        <button type="submit"><span class="signup">Sign Up</span></button>
       </form>
     </div>
 
@@ -58,6 +57,5 @@
 
   <!-- js code -->
 
-  <%- include('../includes/script.ejs') %> 
-  <%- include('../includes/end.ejs') %>
-
+  <%- include('../includes/script.ejs') %> <%- include('../includes/end.ejs') %>
+</body>
