@@ -13,6 +13,7 @@ exports.getPosts = (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
+<<<<<<< HEAD
 };
 
 <<<<<<< HEAD
@@ -46,12 +47,39 @@ exports.getProfilePosts = (req, res, next) => {
         prods: posts,
         pageTitle: "Your Posts",
         path: "/profile",
+=======
+};
+
+exports.getProfilePosts = (req, res, next) => {
+  Post.find()
+    .then((posts) => {
+      res.render("post/profile", {
+        prods: posts,
+        pageTitle: "Your Posts",
+        path: "/profile",
       });
     })
     .catch((err) => {
       console.log(err);
     });
 };
+
+exports.getPostDetail = (res, req, next) => {
+  const prodId = req.params.postId;
+  Post.findById(prodId)
+    .then((post) => {
+      res.render("post/detail-page", {
+        post: post,
+        pageTitle: post.title,
+        path: "/detail-page",
+>>>>>>> DetailPage
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+<<<<<<< HEAD
 
 exports.getPostDetail = (res, req, next) => {
   const prodId = req.params.postId;
@@ -68,3 +96,5 @@ exports.getPostDetail = (res, req, next) => {
     });
 >>>>>>> DetailPage
 };
+=======
+>>>>>>> DetailPage
