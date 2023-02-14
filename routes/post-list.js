@@ -11,6 +11,6 @@ const router = express.Router();
 
 router.get('/', postsController.getPosts);
 
-router.get('/profile:postId', postsController.getPostDetail);
+router.get('/post-list/:postId', postsController.getPost);
 
 module.exports = router;        

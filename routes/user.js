@@ -12,11 +12,17 @@ const router = express.Router();
 
 router.get('/add-post', useraddpostsController.getAddPost);
 
-router.post('/add-post', useraddpostsController.postAddPost);
-
 router.get('/profile', useraddpostsController.getProfilePosts);
 
-router.get('/');
+router.post('/add-post', useraddpostsController.postAddPost);
+
+router.get('/edit-post/:postId', useraddpostsController.getEditPost);
+
+router.post('/edit-post', useraddpostsController.postEditPost);
+
+router.post('/delete-post', useraddpostsController.postDeletePost);
+
+
 
 // router.get('/all-questions', (req, res, next) => {
 //     res.sendFile(path.join(rootDir, 'views', 'add.post.html'));

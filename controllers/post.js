@@ -1,5 +1,5 @@
 const Post = require('../models/post');
-const path = require('path');
+// const path = require('path');
 // const posts = [];
 
 exports.getPosts = (req, res, next) => {
@@ -17,27 +17,17 @@ exports.getPosts = (req, res, next) => {
 };
 
 
-exports.getPostDetail = (res, req, next) => {
+exports.getPost = (req, res, next) => {
     const prodId = req.params.postId;
-    // console.log(prodId);
-    // res.redirect('/');
-    Post.findById(prodId, post => {
-        res.render('post/detail-page', {
-            post: post,
-            pageTitle: post.title,
-            path: '/profile'
-        });
-    });
-    // .then(post => {
-    //     res.render('post/detail-page', {
-    //         post: post,
-    //         pageTitle: post.title,
-    //         path: '/profile'
-    //     });
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // });
+    Post.findById(prodId)
+        .then(post => {
+            res.render('post/post-detail', {
+                post: post,
+                pageTitle: post.title,
+                path: '/post-list'
+            });
+        })
+        .catch(err => console.log(err));
 };
 
 
