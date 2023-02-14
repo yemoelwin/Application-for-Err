@@ -17,10 +17,12 @@
 .parent__div {
 
     width: 100%;
-    height: max-content;
+    height: 40rem;
     display: grid;
     grid-template-columns: 22% 56% 22%;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 .first__div {
@@ -30,6 +32,7 @@
 
 .main__class {
     width: 100%;
+    margin-top: 10%;
 }
 
 .main__div {
@@ -45,6 +48,8 @@
 .post__item {
     text-align: left;
     height: max-content;
+    border-bottom: 1px solid rgb(203, 202, 202);
+    margin-top: 1.5rem;
 }
 
 .post__category {
@@ -61,7 +66,7 @@
 }
 
 .h1__title {
-    color: rgb(39, 133, 206);
+    color: rgb(64, 123, 249);
     font-size: 19px;
     font-weight: 0;
     letter-spacing: .5px;
@@ -69,7 +74,7 @@
 }
 
 .h1__title:hover {
-    color: rgb(7, 142, 246);
+    color: rgb(4, 102, 176);
 }
 
 .category__padding {
@@ -78,14 +83,18 @@
     margin-bottom: 1rem;
     margin-left: 0;
     margin-right: .5rem;
-    background-color: rgb(19, 122, 207);
-    color: white;
+    background-color: rgb(206, 210, 213);
+    color: rgb(74, 8, 181);
     border-radius: 4px;
     cursor: pointer;
 }
 
 .category__padding:hover {
-    background-color: rgb(17, 103, 173);
+    background-color: rgb(215, 204, 204);
+}
+
+.post__description {
+    margin: 1rem 0;
 }
 
 .p__description {
@@ -98,4 +107,52 @@
     margin-left: 1rem;
     margin-top: 1rem;
     color: red;
+}
+
+.imgclass {
+    /* border-bottom: 1px solid rgb(203, 202, 202); */
+    margin-bottom: 1rem;
+    width: 100%;
+    height: max-content;
+}
+
+.imgclass img {
+    width: 100%;
+    height: 100%;
+}
+
+.classbutton {
+    margin-bottom: 1.5rem;
+    /* border-bottom: 1px solid rgb(203, 202, 202); */
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editbtn,
+.deletebtn {
+    padding: .4rem .8rem;
+    background-color: rgb(253, 253, 253);
+    border: 1px solid rgb(47, 47, 92);
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.editbtn {
+    margin: 0 1rem;
+    color: rgb(14, 14, 192);
+}
+
+.deletebtn {
+    color: red;
+}
+
+.deletebtn:hover {
+    background-color: red;
+    color: white;
+}
+
+.editbtn:hover {
+    background-color: rgb(46, 46, 237);
+    color: white
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&family=Roboto&display=swap");
 
 * {
     margin: 0;
@@ -6,7 +6,7 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: "Roboto", sans-serif !important;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    position: absolute;
+    /* position: absolute; */
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +63,7 @@ header ul li a {
 }
 
 header ul li a::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     width: 100%;
@@ -88,7 +88,6 @@ header .search {
     z-index: 10;
     cursor: pointer;
 }
-
 
 .searchBox {
     position: absolute;
@@ -146,25 +145,27 @@ header .search {
     display: none;
 }
 
+.centered {
+    text-align: center;
+}
 
 /* container */
 
-.x_container {
+
+/* .x_container {
     margin: 0;
     padding: 0;
     max-width: 100%;
     max-height: max-content;
     box-sizing: inherit;
     line-height: 3.5rem;
-}
+} */
 
-.xx_container {
-    /* padding-top: 90px;
-    padding-bottom: 90px; */
+/*.xx_container {
     padding: 10rem 0 15rem 0;
     text-align: center;
     text-shadow: #212529;
-    /* font-family: 'Roboto', sans-serif !important; */
+    font-family: 'Roboto', sans-serif !important;
     letter-spacing: 1px;
     background-color: white !important;
     height: 350px;
@@ -174,7 +175,6 @@ header .search {
 
 .h1-color {
     font-size: 40px;
-    /* font-weight: 2700; */
 }
 
 .span-color1,
@@ -190,11 +190,9 @@ header .search {
 .h4-color {
     font-size: 17px;
     color: rgb(0, 0, 0);
-}
-
+/* } */
 
 @media (max-width: 800px) {
-
     .searchBtn {
         left: 0;
     }

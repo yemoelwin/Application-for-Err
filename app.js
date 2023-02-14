@@ -3,24 +3,24 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const errorController = require('./controllers/404');
+const errorController = require("./controllers/404");
 // Middleware
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set("view engine", "ejs");
+app.set("views", "views");
 
-const addpostRoutes = require('./routes/add-post');
-const indexpostRoutes = require('./routes/indexposts');
-const authRoutes = require('./routes/auth');
+const userRoutes = require("./routes/user");
+const postlistRoutes = require("./routes/post-list");
+const authRoutes = require("./routes/auth");
 
 // const userModels = require('./models/user');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // app.use('/user', addpostData.routes);
-app.use('/user', addpostRoutes);
-app.use(indexpostRoutes);
+app.use("/user", userRoutes);
+app.use(postlistRoutes);
 app.use(authRoutes);
 // app.use("/user", userModels);
 // app.use("/api/user", authRoute);
@@ -29,7 +29,7 @@ app.use(errorController.get404);
 
 mongoose
     .connect(
-        "mongodb+srv://itvisionhubs:itvisionhub0001xpl@cluster01.kzbsplu.mongodb.net/errorhandling"
+        "mongodb+srv://itvisionhubs:itvisionhub0001xpl@cluster01.kzbsplu.mongodb.net/postdata"
     )
     .then((result) => {
         app.listen(

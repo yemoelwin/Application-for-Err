@@ -3,16 +3,14 @@ const path = require('path');
 const express = require('express');
 
 // const rootDir = require('../util/path');
-const userpostsController = require('../controllers/indexposts');
+const postsController = require('../controllers/post');
 
 // const addpostData = require('./add-post');
 
 const router = express.Router();
 
-router.get('/', userpostsController.getPosts);
+router.get('/', postsController.getPosts);
 
-router.get('/detail', (req, res, next) => {
-    res.sendFile(path.join(rootDir, 'views', 'detail-page.html'));
-});
+router.get('/post-list/:postId', postsController.getPost);
 
 module.exports = router;        

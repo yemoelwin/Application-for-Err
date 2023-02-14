@@ -1,8 +1,15 @@
 <header>
-    <a class="logo" href="/">Vision</a>
+    <a class="logo <%= path === '/' %> ? 'active' : '' %>" href="/">Vision</a>
 
     <div class="group">
         <ul class="navigation">
+            <li>
+            <a
+            class="<%= path === '/user/profile' %> ? 'active' : '' %>"
+            href="/user/profile"
+            >Profile</a
+            >
+        </li>
         <li>
             <a
             class="<%= path === '/user/add-post' %> ? 'active' : '' %>"
@@ -12,8 +19,8 @@
         </li>
         <li>
             <a
-            class="<%= path === '/user/add-post' %> ? 'active' : '' %>"
-            href="/user/add-post"
+            class="<%= path === '/detail-page' %> ? 'active' : '' %>"
+            href="/post-detail"
             >All Questions</a
             >
         </li>

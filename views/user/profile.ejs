@@ -1,0 +1,61 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <div class="parent__div">
+        <div class="first__div">
+            
+        </div>
+
+        <main class="main__class">
+            <% if (prods.length > 0) { %>
+                <div class="main__div">
+                        <% prods.forEach((post) => { %>
+                        <div class="post__item">
+                            <div class="post__title">
+                                <h1><a href="/post-list/<%= post.id %>" class="h1__title"><%= post.title %></a></h1>
+                            </div>
+                            
+                            <div class="post__category">
+                                <div class="span_post__category">
+                                    <a href="#" class="category__padding"><%= post.category %></a>
+                                </div>
+                            </div> 
+                            <!-- <span><%= post.category %></span> -->
+
+                            <div class="post__description">
+                                <p class="p__description"><%= post.description %></p>
+                            </div>
+
+                            <div class="imgclass">
+                                <img src="<%= post.imageUrl %>" alt="<%= post.title %>">
+                            </div>
+
+                            <div class="classbutton">
+                                <a href="/user/edit-post/<%= post.id %>?edit=true" class="editbtn">Edit</a>
+                                <form action="/user/delete-post" method="POST">
+                                    <input type="hidden" value="<%= post._id %>" name="postId">
+                                    <button class="deletebtn" type="submit">Delete Posts</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <h1 id="NPF">No Post Found!</h1>
+            <% } %>
+        </main>
+
+        <div class="last__div">
+
+        </div>
+    </div>
+
+    
+
+    <%- include('../includes/script.ejs') %> 
+    
+    <%- include('../includes/end.ejs') %>
+
