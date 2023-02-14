@@ -1,7 +1,8 @@
 const Post = require('../models/post');
+const path = require('path');
 
 exports.getAddPost = (req, res, next) => {
-    res.render('user/add-post', {
+    res.render('user/edit-post', {
         pageTitle: 'Add Post',
         path: '/user/add-post',
         editing: false
@@ -29,6 +30,62 @@ exports.postAddPost = (req, res, next) => {
         });
 };
 
+// exports.getEditPost = (req, res, next) => {
+//     res.render('user/edit-post', {
+//         pageTitle: 'Add Post',
+//         path: '/user/add-post',
+//         editing: false
+//     });
+// };
+
+
+exports.getEditPost = (req, res, next) => {
+    const editMode = req.query.edit;
+    if (!editMode) {
+        return res.redirect('/');
+    }
+    const prodId = req.params.postId;
+    Post.findById(prodId)
+        .then(post => {
+            if (!post) {
+                return res.redirect('/');
+            }
+            res.render('user/edit-post', {
+                pageTitle: 'Edit Post',
+                path: '/user/edit-post',
+                editing: editMode,
+                post: post,
+            });
+
+        })
+        .catch(err => console.log(err));
+};
+
+
+exports.postEditPost = (req, res, next) => {
+    const prodId = req.body.postId;
+    const updatedTitle = req.body.title;
+    const updatedCategory = req.body.category;
+    const updatedDesc = req.body.description;
+    const updatedImageUrl = req.body.imageUrl;
+
+    Post.findById(prodId)
+        .then(post => {
+            post.title = updatedTitle;
+            post.category = updatedCategory;
+            post.description = updatedDesc;
+            post.imageUrl = updatedImageUrl;
+            return post.save();
+        })
+        .then(result => {
+            console.log('Updated Post!');
+            res.redirect('/user/profile');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
 exports.getProfilePosts = (req, res, next) => {
     Post.find()
         .then(posts => {
@@ -42,6 +99,20 @@ exports.getProfilePosts = (req, res, next) => {
             console.log(err);
         });
 };
+
+exports.postDeletePost = (req, res, next) => {
+    const prodId = req.body.postId;
+    console.log(prodId);
+    Post.findByIdAndRemove(prodId)
+        .then(() => {
+            console.log('Destroyed Post!');
+            res.redirect('/user/profile');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
 
 
 // exports.getPosts = (req, res, next) => {
@@ -57,3 +128,17 @@ exports.getProfilePosts = (req, res, next) => {
 //             console.log(err);
 //         });
 // };
+
+
+
+         // Post.findById(prodId, post => {
+    //     if (!post) {
+    //         return res.redirect('/');
+    //     }
+    //     res.render('user/edit-post', {
+    //         pageTitle: 'Edit Post',
+    //         path: '/user/edit-post',
+    //         editing: editMode,
+    //         post: post
+    //     });
+    // });
