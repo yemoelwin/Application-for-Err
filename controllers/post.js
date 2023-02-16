@@ -8,7 +8,8 @@ exports.getPosts = (req, res, next) => {
             res.render('post/post-list', {
                 prods: posts,
                 pageTitle: 'All Posts',
-                path: '/'
+                path: '/',
+                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => {
@@ -24,7 +25,8 @@ exports.getPost = (req, res, next) => {
             res.render('post/post-detail', {
                 post: post,
                 pageTitle: post.title,
-                path: '/post-list'
+                path: '/post-list',
+                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => console.log(err));
