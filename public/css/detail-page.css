@@ -75,6 +75,7 @@
   padding: .7rem;
   border-radius: 6px;
   font-size: 14px;
+  border: .5px solid rgb(97, 97, 97);
 }
 
 .__a:hover {

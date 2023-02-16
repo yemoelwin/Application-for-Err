@@ -2,10 +2,14 @@ const Post = require('../models/post');
 const path = require('path');
 
 exports.getAddPost = (req, res, next) => {
+    if (!req.session.isloggedin) {
+        return res.redirect('/login');
+    }
     res.render('user/edit-post', {
         pageTitle: 'Add Post',
         path: '/user/add-post',
-        editing: false
+        editing: false,
+        isAuthenticated: req.session.isloggedin
     });
 };
 
@@ -55,6 +59,7 @@ exports.getEditPost = (req, res, next) => {
                 path: '/user/edit-post',
                 editing: editMode,
                 post: post,
+                isAuthenticated: req.session.isloggedin
             });
 
         })
@@ -92,7 +97,8 @@ exports.getProfilePosts = (req, res, next) => {
             res.render('user/profile', {
                 prods: posts,
                 pageTitle: 'Your Posts',
-                path: '/profile'
+                path: '/profile',
+                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => {

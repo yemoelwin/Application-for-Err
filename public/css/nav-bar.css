@@ -20,6 +20,13 @@ body {
     font-size: 50px;
 }
 
+#NotAccess {
+    margin: 8rem 0;
+    text-align: left;
+    font-size: 50px;
+    color: red;
+}
+
 header {
     /* position: absolute; */
     position: fixed;
@@ -49,17 +56,24 @@ header {
     align-items: center;
 }
 
-header ul {
+header ul,
+header ul button {
     position: relative;
     display: flex;
     gap: 30px;
 }
 
-header ul li a {
+header ul li a,
+header ul li button {
     position: relative;
     font-size: 1.1em;
     color: #333;
     letter-spacing: 0.1em;
+}
+
+header ul li button {
+    border: none;
+    background-color: rgb(221, 222, 225);
 }
 
 header ul li a::before {
@@ -79,12 +93,17 @@ header ul li a:hover::before {
     transform-origin: left;
 }
 
+/* .navigation li a:active,
+.navigation li a.active {
+    color: gold
+} */
+
 header .search {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1.3rem;
     z-index: 10;
     cursor: pointer;
 }
