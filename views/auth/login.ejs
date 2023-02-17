@@ -1,31 +1,42 @@
-<head>
-  <%- include('../includes/head.ejs') %> 
-  <%- include('../includes/css.ejs') %>
-</head>
-<body>
-  <%- include('../includes/navigation.ejs') %>
-  <div class="form-container sign-in-container">
-    <form action="/login" method="POST">
-      <h1>Login</h1>
-      <div class="social-container">
-        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <span>or use your account</span>
-      <div class="infield">
-        <input type="email" placeholder="Email" name="email" />
-        <label></label>
-      </div>
-      <div class="infield">
-        <input type="password" placeholder="Password" />
-        <label></label>
-      </div>
-      <a href="#" class="forgot">Forgot your password?</a>
-      <button>Login</button>
-    </form>
-  </div>
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="../css/login.css">
+    </head>
 
-  <%- include('../includes/script.ejs') %>
-  <%- include('../includes/end.ejs') %>
+    <body>
 
+        <%- include('../includes/navigation.ejs') %>
+
+            <section class="login-section">
+
+                <main class="main_login-form">
+
+                    <form class="login-form" action="/login" method="POST">
+                        <div class="login_form-control">
+                            <label for="email">E-Mail</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+
+                        <div class="login_form-control">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password">
+                        </div>
+
+                        <div class="__form-control">
+                            <button class="submit-btn" type="submit">Login</button>
+                            <a class="a__logout" href="/signup">Sign Up</a>
+                        </div>
+                      
+                        <!-- <form action="/signup" method="GET">
+                          <button class="submit-btn" href="/signup">Sign Up</button>
+                        </form> -->
+
+
+                    </form>
+
+                </main>
+
+            </section>
+
+            <%- include('../includes/script.ejs') %>
+
+                <%- include('../includes/end.ejs') %>
