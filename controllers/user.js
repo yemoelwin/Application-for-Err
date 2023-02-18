@@ -9,7 +9,6 @@ exports.getAddPost = (req, res, next) => {
         pageTitle: 'Add Post',
         path: '/user/add-post',
         editing: false,
-        isAuthenticated: req.session.isloggedin
     });
 };
 
@@ -59,7 +58,6 @@ exports.getEditPost = (req, res, next) => {
                 path: '/user/edit-post',
                 editing: editMode,
                 post: post,
-                isAuthenticated: req.session.isloggedin
             });
 
         })
@@ -98,7 +96,6 @@ exports.getProfilePosts = (req, res, next) => {
                 prods: posts,
                 pageTitle: 'Your Posts',
                 path: '/profile',
-                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => {

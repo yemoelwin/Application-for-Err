@@ -34,6 +34,10 @@
     display: block;
     width: 100%;
     margin-bottom: 0.25rem;
+    font-size: 20px;
+}
+
+.signup_form-control input {
     font-size: 20px !important;
 }
 
@@ -65,4 +69,59 @@
 .submit-btn:hover {
     color: rgb(11, 11, 12);
     background-color: white;
+}
+
+.__errormessage {
+    margin: auto;
+    width: 25%;
+    height: 2.5rem;
+    border: 1px solid rgb(148, 4, 4);
+    background-color: rgb(245, 5, 5);
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.__messageError {
+    margin-bottom: 1.5rem;
+}
+
+.signup__error {
+    font-size: 20px;
+    margin-top: .5rem;
+}
+
+@media (max-width: 800px) {
+    .signup-section {
+        width: 100%;
+        height: 55em;
+    }
+
+    .main_signup-form {
+        border: 1px solid rgb(192, 190, 190);
+        width: 70%;
+        height: 55%;
+        padding: 1rem;
+    }
+
+    .signup-form {
+        margin-top: 5rem;
+    }
+
+    .signup_form-control label {
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        color: #000000;
+        background: rgb(239, 237, 237);
+        padding: .5rem;
+        margin-top: 1rem;
+        font-size: 15px;
+    }
+
+    .submit-btn:hover {
+        color: rgb(3, 3, 253);
+        background-color: white;
+    }
+
 }

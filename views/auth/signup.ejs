@@ -7,7 +7,10 @@
         <%- include('../includes/navigation.ejs') %>
 
             <section class="signup-section">
-
+                <% if (errorMessage) { %>
+                <div class="__errormessage __messageError"><p class="signup__error"><%= errorMessage %></p></div>
+                <% } %>
+                
                 <main class="main_signup-form">
 
                     <form class="signup-form" action="/signup" method="POST">
@@ -27,6 +30,7 @@
                         </div>
 
                         <div class="signup__btn-control">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                             <button class="submit-btn" type="submit">Sign Up</button>
                         </div>
                       
