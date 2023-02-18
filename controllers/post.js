@@ -1,6 +1,4 @@
 const Post = require('../models/post');
-// const path = require('path');
-// const posts = [];
 
 exports.getPosts = (req, res, next) => {
     Post.find()
@@ -9,7 +7,6 @@ exports.getPosts = (req, res, next) => {
                 prods: posts,
                 pageTitle: 'All Posts',
                 path: '/',
-                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => {
@@ -26,7 +23,6 @@ exports.getPost = (req, res, next) => {
                 post: post,
                 pageTitle: post.title,
                 path: '/post-list',
-                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => console.log(err));
