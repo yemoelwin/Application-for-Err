@@ -1,0 +1,136 @@
+.reset-section {
+    width: 100%;
+    height: 45em;
+    padding: 10rem 0;
+    z-index: 10;
+}
+
+.main_reset-form {
+    background-color: white;
+    border: 1px solid rgb(192, 190, 190);
+    width: 40%;
+    height: 55%;
+    padding: 2rem;
+    margin: 3rem auto;
+    border-radius: 5px;
+    opacity: 1;
+
+}
+
+.reset-form {
+    width: 25rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+}
+
+.reset_form-control {
+    margin: .8rem 0;
+}
+
+.reset_form-control label,
+.reset_form-control input,
+.reset_form-control textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+    font-size: 20px;
+}
+
+.reset_form-control input {
+    border: 1px solid #a1a1a1;
+    font: inherit;
+    border-radius: 3px;
+    height: 35px;
+    width: 100%;
+}
+
+/* .error_form-control input:focus {
+    outline-color: #fcca7f;
+} */
+
+.__form-control {
+    display: block;
+}
+
+
+.reset-btn {
+    font: inherit;
+    border: 1px solid #090909;
+    color: white;
+    background: blue;
+    border-radius: 4px;
+    cursor: pointer;
+    /* width: 120px;
+    height: 40px; */
+    padding: .5rem;
+    margin-top: 1rem;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.reset-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(18, 18, 234);
+}
+
+.__errormessage {
+    margin: auto;
+    width: 25%;
+    height: 2.5rem;
+    border: 1px solid rgb(148, 4, 4);
+    background-color: rgb(245, 5, 5);
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.login__error {
+    font-size: 17px;
+    margin-top: .5rem;
+}
+
+.reset-btn:hover {
+    background-color: rgb(13, 13, 224);
+}
+
+@media (max-width: 800px) {
+    .reset-section {
+        width: 100%;
+        height: 38em;
+    }
+
+    .main_reset-form {
+        border: 1px solid rgb(192, 190, 190);
+        width: 60%;
+        height: 60%;
+        padding: 0rem;
+    }
+
+    .reset_form-control {
+        align-items: center;
+        margin-top: 1.3rem;
+    }
+
+    .reset_form-control label {
+        font-size: 18px;
+    }
+
+    .errormessage {
+        width: 30rem;
+    }
+
+    .reset-btn {
+        color: white;
+        background: blue;
+        padding: .3rem;
+        letter-spacing: 1px;
+        font-size: 14px;
+        margin-top: 1rem;
+    }
+
+    .reset-btn:hover {
+        color: white;
+        background-color: rgb(22, 22, 224);
+    }
+
+}

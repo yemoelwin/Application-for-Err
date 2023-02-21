@@ -15,7 +15,7 @@
                         <% prods.forEach((post) => { %>
                         <div class="post__item">
                             <div class="post__title">
-                                <h1><a href="/detail-page" class="h1__title"><%= post.title %></a></h1>
+                                <h1><a href="/post-list/<%= post.id %>" class="h1__title"><%= post.title %></a></h1>
                             </div>
                             
                             <div class="post__category">
@@ -30,12 +30,14 @@
                             </div>
 
                             <div class="imgclass">
-                                <img src="<%= post.imageUrl%>" alt="<%= post.title %>">
+                                <img src="<%= post.imageUrl %>" alt="<%= post.title %>">
                             </div>
 
                             <div class="classbutton">
-                                <a href="/user/edit-post" class="editbtn">Edit</a>
+                                <a href="/user/edit-post/<%= post.id %>?edit=true" class="editbtn">Edit</a>
                                 <form action="/user/delete-post" method="POST">
+                                    <input type="hidden" value="<%= post._id %>" name="postId">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                     <button class="deletebtn" type="submit">Delete Posts</button>
                                 </form>
                             </div>

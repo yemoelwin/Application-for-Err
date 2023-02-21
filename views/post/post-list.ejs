@@ -29,8 +29,10 @@
                         <% prods.forEach((post) => { %>
                         <div class="post__item">
                             <div class="post__title">
-                                <!-- <form action="/detail-page/" method="POST"> -->
-                                    <h1><a href="/profile/<%= post.id %>" class="h1__title"><%= post.title %></a></h1>
+                                <!-- <form action="/detail-page" method="POST"> -->
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <h1><a href="/post-list/<%= post.id %>" class="h1__title"><%= post.title %></a></h1>
+                                    <!-- <input type="hidden" name="postId" value="<%= post.id %>"> -->
                                 <!-- </form> -->
                             </div>
                             
@@ -45,7 +47,7 @@
                             </div>
 
                             <div class="imgclass">
-                                <img src="<%= post.imageUrl%>" alt="<%= post.title %>">
+                                <img src="<%= post.imageUrl %>" alt="<%= post.title %>">
                             </div>
                         </div>
                     <% }) %>

@@ -17,6 +17,23 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  resetToken: String,
+  resetTokenExpiration: Date,
+  userpost: {
+    posts: [
+      {
+        postId: {
+          type: Schema.Types.ObjectId,
+          ref: "Post",
+          required: true,
+        },
+        date: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);

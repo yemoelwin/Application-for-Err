@@ -1,0 +1,51 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="../css/post.css">
+    </head>
+
+    <body>
+
+        <%- include('../includes/navigation.ejs') %>
+
+            <section class="post-section">
+
+                <main class="main_error-form">
+
+                    <form class="error-form" action="/user/<% if (editing) { %>edit-post<% } else { %>add-post<% } %>" method="POST">
+                        <div class="error_form-control">
+                            <label for="title">Error Title</label>
+                            <input type="text" name="title" id="title" value="<% if (editing) { %><%= post.title %><% } %>">
+                        </div>
+
+                        <div class="error_form-control">
+                            <label for="category">Category</label>
+                            <input type="text" name="category" id="category" value="<% if (editing) { %><%= post.category %><% } %>">
+                        </div>
+
+                        <div class="error_form-control">
+                            <label for="description">Description</label>
+                            <textarea type="text" name="description" id="description" rows="5"
+                                class="description"><% if (editing) { %><%= post.description %><% } %></textarea>
+                        </div>
+
+                        <div class="error_form-control">
+                            <label for="imageUrl">ImageUrl</label>
+                            <input type="text" name="imageUrl" id="image_input" value="<% if (editing) { %><%= post.imageUrl %><% } %>">
+                            <!-- <div id="display_image">
+
+                            </div> -->
+                        </div>
+                        <% if (editing) { %>
+                            <input type="hidden" value="<%= post._id %>" name="postId">
+                        <% } %>
+                        
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class="submit-btn" type="submit"><% if (editing) { %>Update Post<% } else { %>Add Post<% } %></button>
+                    </form>
+
+                </main>
+
+            </section>
+
+            <%- include('../includes/script.ejs') %>
+
+                <%- include('../includes/end.ejs') %>

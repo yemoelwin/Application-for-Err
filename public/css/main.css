@@ -33,6 +33,7 @@
 .main__class {
     width: 100%;
     margin-top: 10%;
+    height: auto;
 }
 
 .main__div {
@@ -49,6 +50,7 @@
     text-align: left;
     height: max-content;
     border-bottom: 1px solid rgb(203, 202, 202);
+    margin-top: 1.5rem;
 }
 
 .post__category {
@@ -92,6 +94,10 @@
     background-color: rgb(215, 204, 204);
 }
 
+.post__description {
+    margin: 1rem 0;
+}
+
 .p__description {
     font-size: 19px;
     letter-spacing: .5px;
@@ -108,16 +114,17 @@
     /* border-bottom: 1px solid rgb(203, 202, 202); */
     margin-bottom: 1rem;
     width: 100%;
-    height: 400px;
+    height: max-content;
 }
 
 .imgclass img {
     width: 100%;
+    height: 100%;
 }
 
 .classbutton {
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgb(203, 202, 202);
+    /* border-bottom: 1px solid rgb(203, 202, 202); */
     padding: .5rem 1rem;
     display: flex;
     justify-content: flex-end;
@@ -125,7 +132,7 @@
 
 .editbtn,
 .deletebtn {
-    padding: .4rem;
+    padding: .4rem .8rem;
     background-color: rgb(253, 253, 253);
     border: 1px solid rgb(47, 47, 92);
     border-radius: 8px;
