@@ -1,8 +1,14 @@
 const crypto = require("crypto");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
+<<<<<<< HEAD
 const nodeMailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
+=======
+// const createError = require("http-errors");
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+>>>>>>> DetailPage
 
 // async function main() {
 //   let testAccount = await nodeMailer.createTestAccount();
