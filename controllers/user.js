@@ -9,7 +9,6 @@ exports.getAddPost = (req, res, next) => {
         pageTitle: 'Add Post',
         path: '/user/add-post',
         editing: false,
-        isAuthenticated: req.session.isloggedin
     });
 };
 
@@ -22,7 +21,8 @@ exports.postAddPost = (req, res, next) => {
         title: title,
         category: category,
         description: description,
-        imageUrl: imageUrl
+        imageUrl: imageUrl,
+        userId: req.user
     });
     post.save()
         .then(result => {
@@ -59,7 +59,6 @@ exports.getEditPost = (req, res, next) => {
                 path: '/user/edit-post',
                 editing: editMode,
                 post: post,
-                isAuthenticated: req.session.isloggedin
             });
 
         })
@@ -76,15 +75,18 @@ exports.postEditPost = (req, res, next) => {
 
     Post.findById(prodId)
         .then(post => {
+            if (post.userId.toString() !== req.user._id.toString()) {
+                return res.redirect('/');
+            }
             post.title = updatedTitle;
             post.category = updatedCategory;
             post.description = updatedDesc;
             post.imageUrl = updatedImageUrl;
-            return post.save();
-        })
-        .then(result => {
-            console.log('Updated Post!');
-            res.redirect('/user/profile');
+            return post.save()
+                .then(result => {
+                    console.log('Updated Post!');
+                    res.redirect('/user/profile');
+                });
         })
         .catch(err => {
             console.log(err);
@@ -92,13 +94,12 @@ exports.postEditPost = (req, res, next) => {
 };
 
 exports.getProfilePosts = (req, res, next) => {
-    Post.find()
+    Post.find({ userId: req.user._id })
         .then(posts => {
             res.render('user/profile', {
                 prods: posts,
                 pageTitle: 'Your Posts',
                 path: '/profile',
-                isAuthenticated: req.session.isloggedin
             });
         })
         .catch(err => {
@@ -108,8 +109,7 @@ exports.getProfilePosts = (req, res, next) => {
 
 exports.postDeletePost = (req, res, next) => {
     const prodId = req.body.postId;
-    console.log(prodId);
-    Post.findByIdAndRemove(prodId)
+    Post.deleteOne({ _id: prodId, userId: req.user._id })
         .then(() => {
             console.log('Destroyed Post!');
             res.redirect('/user/profile');
