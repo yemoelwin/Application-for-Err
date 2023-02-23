@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="classbutton">
-                                <a href="/user/edit-post/<%= post.id %>?edit=true" class="editbtn">Edit</a>
+                                <a href="/user/edit-post/<%= post._id %>?edit=true" class="editbtn">Edit</a>
                                 <form action="/user/delete-post" method="POST">
                                     <input type="hidden" value="<%= post._id %>" name="postId">
                                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">

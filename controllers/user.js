@@ -1,6 +1,8 @@
 const Post = require('../models/post');
 const path = require('path');
 
+const { validationResult } = require('express-validator');
+
 exports.getAddPost = (req, res, next) => {
     if (!req.session.isloggedin) {
         return res.redirect('/login');
@@ -8,7 +10,10 @@ exports.getAddPost = (req, res, next) => {
     res.render('user/edit-post', {
         pageTitle: 'Add Post',
         path: '/user/add-post',
+        hasError: false,
         editing: false,
+        errorMessage: null,
+        validationErrors: []
     });
 };
 
@@ -17,6 +22,24 @@ exports.postAddPost = (req, res, next) => {
     const category = req.body.category;
     const description = req.body.description;
     const imageUrl = req.body.imageUrl;
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render('user/edit-post', {
+            pageTitle: 'Add Post',
+            path: '/user/edit-post',
+            hasError: true,
+            editing: false,
+            post: {
+                title: title,
+                category: category,
+                description: description,
+                imageUrl: imageUrl
+            },
+            errorMessage: errors.array()[0].msg,
+            validationErrors: errors.array()
+        });
+    }
     const post = new Post({
         title: title,
         category: category,
@@ -59,6 +82,9 @@ exports.getEditPost = (req, res, next) => {
                 path: '/user/edit-post',
                 editing: editMode,
                 post: post,
+                hasError: false,
+                errorMessage: null,
+                validationErrors: []
             });
 
         })
@@ -72,6 +98,24 @@ exports.postEditPost = (req, res, next) => {
     const updatedCategory = req.body.category;
     const updatedDesc = req.body.description;
     const updatedImageUrl = req.body.imageUrl;
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render('user/edit-post', {
+            pageTitle: 'Edit Post',
+            path: '/user/edit-post',
+            hasError: true,
+            editing: true,
+            post: {
+                title: updatedTitle,
+                category: updatedCategory,
+                description: updatedDesc,
+                imageUrl: updatedImageUrl
+            },
+            errorMessage: errors.array()[0].msg,
+            validationErrors: errors.array()
+        });
+    }
 
     Post.findById(prodId)
         .then(post => {

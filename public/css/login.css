@@ -29,7 +29,6 @@
 }
 
 .login_form-control label,
-.login_form-control input,
 .login_form-control textarea {
     display: block;
     width: 100%;
@@ -38,11 +37,15 @@
 }
 
 .login_form-control input {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
     border: 1px solid #a1a1a1;
     font: inherit;
     border-radius: 3px;
     height: 35px;
     width: 100%;
+    font-size: 20px !important;
 }
 
 /* .error_form-control input:focus {
@@ -109,6 +112,10 @@
 
 .reset-btn:hover {
     background-color: rgb(13, 13, 224);
+}
+
+.login_form-control input.invalid {
+    border: 2px solid red;
 }
 
 @media (max-width: 800px) {
