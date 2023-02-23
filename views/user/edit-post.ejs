@@ -7,29 +7,51 @@
         <%- include('../includes/navigation.ejs') %>
 
             <section class="post-section">
-
+                <% if (errorMessage) { %>
+                    <div class="__errmessage __messageErr"><p class="add__error"><%= errorMessage %></p></div>
+                <% } %>
                 <main class="main_error-form">
 
                     <form class="error-form" action="/user/<% if (editing) { %>edit-post<% } else { %>add-post<% } %>" method="POST">
                         <div class="error_form-control">
                             <label for="title">Error Title</label>
-                            <input type="text" name="title" id="title" value="<% if (editing) { %><%= post.title %><% } %>">
+                            <input 
+                                class="<%= validationErrors.find(e => e.param === 'title') ? 'invalid': '' %>"
+                                type="text" 
+                                name="title" 
+                                id="title" 
+                                value="<% if (editing || hasError) { %><%= post.title %><% } %>">
                         </div>
 
                         <div class="error_form-control">
                             <label for="category">Category</label>
-                            <input type="text" name="category" id="category" value="<% if (editing) { %><%= post.category %><% } %>">
+                            <input
+                                class="<%= validationErrors.find(e => e.param === 'category') ? 'invalid': '' %>"
+                                type="text" 
+                                name="category" 
+                                id="category" 
+                                value="<% if (editing || hasError) { %><%= post.category %><% } %>">
                         </div>
 
                         <div class="error_form-control">
                             <label for="description">Description</label>
-                            <textarea type="text" name="description" id="description" rows="5"
-                                class="description"><% if (editing) { %><%= post.description %><% } %></textarea>
+                            <textarea
+                                class="<%= validationErrors.find(e => e.param === 'description') ? 'invalid': '' %>"
+                                type="text" 
+                                name="description" 
+                                id="description" 
+                                rows="5"
+                                class="description"><% if (editing || hasError) { %><%= post.description %><% } %></textarea>
                         </div>
 
                         <div class="error_form-control">
                             <label for="imageUrl">ImageUrl</label>
-                            <input type="text" name="imageUrl" id="image_input" value="<% if (editing) { %><%= post.imageUrl %><% } %>">
+                            <input
+                                class="<%= validationErrors.find(e => e.param === 'imageUrl') ? 'invalid': '' %>"
+                                type="text" 
+                                name="imageUrl" 
+                                id="image_input" 
+                                value="<% if (editing || hasError) { %><%= post.imageUrl %><% } %>">
                             <!-- <div id="display_image">
 
                             </div> -->
