@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  name: {
-    type: String,
-    required: true,
-  },
+  // _id: mongoose.Schema.Types.ObjectId,
+  // name: {
+  //   type: String,
+  //   required: true,
+  // },
   email: {
     type: String,
     required: true,
-    unique: true,
-    match: /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/,
+    // unique: true,
+    // match: /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/,
   },
   password: {
     type: String,
