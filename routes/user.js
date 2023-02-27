@@ -22,7 +22,8 @@ router.post('/add-post', isAuth,
             .isLength({ min: 6 })
             .trim(),
         body('category')
-            .isAlphanumeric(),
+            .isLength({ min: 2 }),
+        //     .isAlphanumeric(),
         body('description')
             .isLength({ min: 5, max: 600 })
             .trim(),
