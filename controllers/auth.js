@@ -11,19 +11,24 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 const { validationResult } = require('express-validator');
 
 // async function main() {
-//   let testAccount = await nodeMailer.createTestAccount();
-//   let transporter = nodeMailer.createTransport({
-//     host: 'smtp.ethereal.email',
-//     port: 587,
-//     secure: false,  // true for 465, false for other ports
-//     auth: {
-//       user: testAccount.user,
-//       pass: testAccount.pass,
-//     }
-//   });
+// let testAccount = await nodeMailer.createTestAccount();
+// let transporter = nodeMailer.createTransport({
+//   host: 'smtp.ethereal.email',
+//   port: 587,
+//   secure: false,  // true for 465, false for other ports
+//   auth: {
+//     user: process.env.MY_SECRET_EMAIL,
+//     pass: process.env.MY_EMAIL_PASSWORD,
+//   },
+//   tls: {
+//     rejectUnauthorized: false,
+//   }
+// });
+
+
 
 //   let info = await transporter.sendMail({
-//     from: 'florian.schaden@ethereal.email',
+//     from: '',
 //     to: 'florian.schaden@ethereal.email',
 //     subject: 'Your Sign Up Notification',
 //     text: 'Your e-mail account has been successfully created.',
@@ -60,6 +65,7 @@ exports.getLogin = (req, res, next) => {
     validationErrors: []
   });
 };
+
 
 exports.getSignup = (req, res, next) => {
   let message = req.flash('error');

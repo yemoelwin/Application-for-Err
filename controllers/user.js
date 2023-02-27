@@ -110,7 +110,8 @@ exports.postEditPost = (req, res, next) => {
                 title: updatedTitle,
                 category: updatedCategory,
                 description: updatedDesc,
-                imageUrl: updatedImageUrl
+                imageUrl: updatedImageUrl,
+                _id: postId
             },
             errorMessage: errors.array()[0].msg,
             validationErrors: errors.array()
