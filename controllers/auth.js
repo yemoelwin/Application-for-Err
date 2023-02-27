@@ -1,5 +1,4 @@
-const crypto = require('crypto');
-
+const crypto = require("crypto");
 const User = require("../models/user");
 
 const bcrypt = require("bcryptjs");
@@ -48,7 +47,7 @@ const { validationResult } = require('express-validator');
 
 exports.getLogin = (req, res, next) => {
   // const isloggedin = req.get('cookie').split('=')[1];
-  let message = req.flash('error');
+  let message = req.flash("error");
   if (message.length > 0) {
     message = message[0];
   } else {
@@ -68,7 +67,7 @@ exports.getLogin = (req, res, next) => {
 
 
 exports.getSignup = (req, res, next) => {
-  let message = req.flash('error');
+  let message = req.flash("error");
   if (message.length > 0) {
     message = message[0];
   } else {
@@ -187,7 +186,7 @@ exports.postSignup = (req, res, next) => {
     .then(result => {
       res.redirect('/login');
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 };
@@ -232,23 +231,23 @@ exports.postSignup = (req, res, next) => {
 
 
 exports.postLogout = (req, res, next) => {
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     console.log(err);
-    res.redirect('/');
+    res.redirect("/");
   });
 };
 
 exports.getReset = (req, res, next) => {
-  let message = req.flash('error');
+  let message = req.flash("error");
   if (message.length > 0) {
     message = message[0];
   } else {
     message = null;
   }
-  res.render('auth/reset', {
-    path: '/reset',
-    pageTitle: 'Reset Password',
-    errorMessage: message
+  res.render("auth/reset", {
+    path: "/reset",
+    pageTitle: "Reset Password",
+    errorMessage: message,
   });
 };
 
@@ -256,23 +255,23 @@ exports.postReset = (req, res, next) => {
   crypto.randomBytes(32, (err, buffer) => {
     if (err) {
       console.log(err);
-      return res.redirect('/reset');
+      return res.redirect("/reset");
     }
-    const token = buffer.toString('hex');
+    const token = buffer.toString("hex");
     User.findOne({ email: req.body.email })
-      .then(user => {
+      .then((user) => {
         if (!user) {
-          req.flash('error', 'This e-mail account does not found.');
-          return res.redirect('/reset');
+          req.flash("error", "This e-mail account does not found.");
+          return res.redirect("/reset");
         }
         user.resetToken = token;
         user.resetTokenExpiration = Date.now() + 3600000;
         return user.save();
       })
-      .then(result => {
-        res.redirect('/');
+      .then((result) => {
+        res.redirect("/");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   });
@@ -283,27 +282,26 @@ exports.getNewPassword = (req, res, next) => {
   User.findOne({
     resetToken: token,
     resetTokenExpiration: {
-      $gt: Date.now()
-    }
+      $gt: Date.now(),
+    },
   })
-    .then(user => {
-      let message = req.flash('error');
+    .then((user) => {
+      let message = req.flash("error");
       if (message.length > 0) {
         message = message[0];
       } else {
         message = null;
       }
-      res.render('auth/new-password', {
-        path: '/new-password',
-        pageTitle: 'New Password',
+      res.render("auth/new-password", {
+        path: "/new-password",
+        pageTitle: "New Password",
         errorMessage: message,
-        userId: user._id.toString()
+        userId: user._id.toString(),
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
-
 };
 
 // exports.postLogin = async (req, res, next) => {
@@ -332,21 +330,20 @@ exports.getNewPassword = (req, res, next) => {
 //   res.json({ token: token });
 // };
 
-
 // exports.postSignup = async (req, res, next) => {
-  // Lets Validate The data Before We a user
+// Lets Validate The data Before We a user
 
-  // Checking if the user is already in the database
-  // const emailExist = await User
-  //   .findOne({ email: req.body.email });
-  // if (emailExist) return res
-  //   .status(400).send("Email is already exists!");
+// Checking if the user is already in the database
+// const emailExist = await User
+//   .findOne({ email: req.body.email });
+// if (emailExist) return res
+//   .status(400).send("Email is already exists!");
 
-  // Hash Passwords
-  // const salt = await bcrypt.genSalt(10);
-  // const hashPassword = await bcrypt.hash(req.body.password, salt);
+// Hash Passwords
+// const salt = await bcrypt.genSalt(10);
+// const hashPassword = await bcrypt.hash(req.body.password, salt);
 
-  // Create a new User
+// Create a new User
 //   const user = new User({
 //     name: req.body.name,
 //     email: req.body.email,
