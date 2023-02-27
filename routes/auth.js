@@ -9,24 +9,15 @@ const router = express.Router();
 const authController = require("../controllers/auth");
 // const { check, body } = require("express-validator/check");
 
-<<<<<<< HEAD
-const isAuth = require("../middleware/is-auth");
-=======
 const { check, body } = require('express-validator');
 
 const User = require('../models/user');
->>>>>>> 037585d3fce4e51afabd02c3b2b25c1151f11cbe
 
 // LOGIN SECTION
 router.get("/login", authController.getLogin);
 
 router.get("/signup", authController.getSignup);
 
-<<<<<<< HEAD
-router.post("/login", authController.postLogin);
-
-router.post("/signup", authController.postSignup);
-=======
 router.post('/login',
     [
         check('email')
@@ -71,7 +62,6 @@ router.post('/signup',
             })
             .trim()
     ], authController.postSignup);
->>>>>>> 037585d3fce4e51afabd02c3b2b25c1151f11cbe
 
 router.post("/logout", authController.postLogout);
 
