@@ -1,5 +1,5 @@
 const Post = require('../models/post');
-const Items_Per_Page = 1;
+const Items_Per_Page = 4;
 
 exports.getPosts = (req, res, next) => {
     const page = +req.query.page || 1;

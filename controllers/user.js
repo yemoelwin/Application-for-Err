@@ -1,5 +1,6 @@
+const mongoose = require('mongoose');
 const Post = require('../models/post');
-const path = require('path');
+// const path = require('path');
 
 const { validationResult } = require('express-validator');
 
@@ -21,13 +22,27 @@ exports.postAddPost = (req, res, next) => {
     const title = req.body.title;
     const category = req.body.category;
     const description = req.body.description;
-    const imageUrl = req.body.imageUrl;
-
+    const image = req.file;
+    if (!image) {
+        return res.stauts(422).render('user/edit-post', {
+            pageTitle: 'Add Post',
+            path: '/user/add-post',
+            hasError: true,
+            editing: false,
+            post: {
+                title: title,
+                category: category,
+                description: description,
+            },
+            errorMessage: 'Attached file is not an image.',
+            validationErrors: []
+        });
+    }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.render('user/edit-post', {
+        return res.stauts(422).render('user/edit-post', {
             pageTitle: 'Add Post',
-            path: '/user/edit-post',
+            path: '/user/add-post',
             hasError: true,
             editing: false,
             post: {
@@ -40,6 +55,7 @@ exports.postAddPost = (req, res, next) => {
             validationErrors: errors.array()
         });
     }
+    const imageUrl = image.path;
     const post = new Post({
         title: title,
         category: category,
@@ -97,7 +113,7 @@ exports.postEditPost = (req, res, next) => {
     const updatedTitle = req.body.title;
     const updatedCategory = req.body.category;
     const updatedDesc = req.body.description;
-    const updatedImageUrl = req.body.imageUrl;
+    const image = req.file;
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -110,8 +126,7 @@ exports.postEditPost = (req, res, next) => {
                 title: updatedTitle,
                 category: updatedCategory,
                 description: updatedDesc,
-                imageUrl: updatedImageUrl,
-                _id: postId
+                _id: prodId
             },
             errorMessage: errors.array()[0].msg,
             validationErrors: errors.array()
@@ -126,7 +141,9 @@ exports.postEditPost = (req, res, next) => {
             post.title = updatedTitle;
             post.category = updatedCategory;
             post.description = updatedDesc;
-            post.imageUrl = updatedImageUrl;
+            if (image) {
+                post.imageUrl = image.path;
+            }
             return post.save()
                 .then(result => {
                     console.log('Updated Post!');
