@@ -7,13 +7,19 @@ const nodeMailer = require('nodemailer');
 
 const sendgridTransport = require('nodemailer-sendgrid-transport');
 
+let dotenv = require('dotenv');
+dotenv.config();
+
 const { validationResult } = require('express-validator');
 
 // async function main() {
 // let testAccount = await nodeMailer.createTestAccount();
+
+
 // let transporter = nodeMailer.createTransport({
 //   host: 'smtp.ethereal.email',
-//   port: 587,
+// port: 587,
+//   service: 'gmail',
 //   secure: false,  // true for 465, false for other ports
 //   auth: {
 //     user: process.env.MY_SECRET_EMAIL,
@@ -39,11 +45,23 @@ const { validationResult } = require('express-validator');
 
 // main().catch(console.error);
 
-// const transporter = nodeMailer.createTransport(sendgridTransport({
-//   auth: {
-//     api_key: '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'
-//   }
-// }));
+const transporter = nodeMailer.createTransport({
+  // auth: {
+  //   api_key: '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'
+  // },
+  // host: 'Vision@error.com',
+  host: 'smtp.ethereal.email',
+  port: 587,
+  service: 'gmail',
+  secure: false,  // true for 465, false for other ports
+  auth: {
+    user: process.env.MY_SECRET_EMAIL,
+    pass: process.env.MY_EMAIL_PASSWORD,
+  },
+  // tls: {
+  //   rejectUnauthorized: false,
+  // }
+});
 
 exports.getLogin = (req, res, next) => {
   // const isloggedin = req.get('cookie').split('=')[1];
@@ -185,6 +203,13 @@ exports.postSignup = (req, res, next) => {
     })
     .then(result => {
       res.redirect('/login');
+      return transporter.sendMail({
+        from: process.env.MY_SECRET_EMAIL,
+        to: email,
+        subject: "Hello", // Subject line
+        text: "Your email account has been successfully created.", // plain text body
+        html: "<h1>Your email account has been successfully created.</h1>", // html body
+      });
     })
     .catch((err) => {
       console.log(err);
