@@ -206,7 +206,7 @@ exports.postSignup = (req, res, next) => {
       return transporter.sendMail({
         from: process.env.MY_SECRET_EMAIL,
         to: email,
-        subject: "Hello", // Subject line
+        subject: "We really appreciated for your sign up." + '' + new Date(), // Subject line
         text: "Your email account has been successfully created.", // plain text body
         html: "<h1>Your email account has been successfully created.</h1>", // html body
       });
