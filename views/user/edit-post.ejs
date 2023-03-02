@@ -12,7 +12,7 @@
                 <% } %>
                 <main class="main_error-form">
 
-                    <form class="error-form" action="/user/<% if (editing) { %>edit-post<% } else { %>add-post<% } %>" method="POST">
+                    <form class="error-form" action="/user/<% if (editing) { %>edit-post<% } else { %>add-post<% } %>" method="POST" enctype="multipart/form-data">
                         <div class="error_form-control">
                             <label for="title">Error Title</label>
                             <input 
@@ -44,7 +44,7 @@
                                 class="description"><% if (editing || hasError) { %><%= post.description %><% } %></textarea>
                         </div>
 
-                        <div class="error_form-control">
+                        <!-- <div class="error_form-control">
                             <label for="imageUrl">ImageUrl</label>
                             <input
                                 class="<%= validationErrors.find(e => e.param === 'imageUrl') ? 'invalid': '' %>"
@@ -52,9 +52,16 @@
                                 name="imageUrl" 
                                 id="image_input" 
                                 value="<% if (editing || hasError) { %><%= post.imageUrl %><% } %>">
-                            <!-- <div id="display_image">
-
+                                <div id="display_image">
+    
+                                </div>
                             </div> -->
+                        <div class="error_form-control">
+                            <label for="image">Image</label>
+                            <input
+                                type="file" 
+                                name="image" 
+                                id="image" >
                         </div>
                         <% if (editing) { %>
                             <input type="hidden" value="<%= post._id %>" name="postId">

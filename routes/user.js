@@ -19,7 +19,7 @@ router.post('/add-post', isAuth,
     [
         body('title')
             .isString()
-            .isLength({ min: 6 })
+            .isLength({ min: 4 })
             .trim(),
         body('category')
             .isLength({ min: 2 }),
@@ -27,14 +27,25 @@ router.post('/add-post', isAuth,
         body('description')
             .isLength({ min: 5, max: 600 })
             .trim(),
-        body('imageUrl')
-            .isURL()
+        // body('imageUrl')
+        //     .isURL()
 
     ], useraddpostsController.postAddPost);
 
 router.get('/edit-post/:postId', isAuth, useraddpostsController.getEditPost);
 
-router.post('/edit-post', isAuth, useraddpostsController.postEditPost);
+router.post('/edit-post', isAuth,
+    [
+        body('title')
+            .isString()
+            .isLength({ min: 4 })
+            .trim(),
+        body('category')
+            .isLength({ min: 2 }),
+        body('description')
+            .isLength({ min: 5, max: 600 })
+            .trim(),
+    ], useraddpostsController.postEditPost);
 
 router.post('/delete-post', isAuth, useraddpostsController.postDeletePost);
 
